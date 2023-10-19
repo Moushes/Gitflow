@@ -12,6 +12,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 }
-
+//mieda de git
 //esto es una peueba de que esta mierda funciona
-//Emilio
+
+//el de arriba es tonto
+//Explosion masiva del git
+// son las 3:33
