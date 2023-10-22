@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "724319159251",
-    "project_id": "autonest-865e0",
-    "storage_bucket": "autonest-865e0.appspot.com"
+    "project_number": "1099068980200",
+    "project_id": "autonest-a9d55",
+    "storage_bucket": "autonest-a9d55.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:724319159251:android:223aee0433f94af9702526",
+        "mobilesdk_app_id": "1:1099068980200:android:2f0024b71b56b4b4ba825d",
         "android_client_info": {
           "package_name": "com.example.proyectoiot"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyAy_fW1q6BPM1hzEZlAf1Q26Tn5feZOLnY"
+          "current_key": "AIzaSyCsdPlRRKdx2uJPBGWB6LE7lbyYID4DIAk"
         }
       ],
       "services": {
