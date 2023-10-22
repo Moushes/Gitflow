@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.example.autonest.ui.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/nav_luz"
+        android:name="com.example.autonest.ui.luz.LuzFragment"
+        android:label="@string/menu_luz"
+        tools:layout="@layout/fragment_home" />
+
+
+    <fragment
+        android:id="@+id/nav_parking"
+        android:name="com.example.autonest.ui.Parking.ParkingFragment"
+        android:label="@string/menu_parking"
+        tools:layout="@layout/fragment_parking" />
+    <fragment
+        android:id="@+id/nav_cerrar_sesion"
+        android:name="com.example.autonest.ui.Logout.LogoutFragment"
+        android:label="@string/menu_cerrar_sesion"
+        tools:layout="@layout/fragment_logout" />
+</navigation>
