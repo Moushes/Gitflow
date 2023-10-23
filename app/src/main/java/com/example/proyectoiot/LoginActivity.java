@@ -5,9 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -32,10 +30,10 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        etCorreo = (EditText) findViewById(R.id.correo);
-        etContraseña = (EditText) findViewById(R.id.contraseña);
-        tilCorreo = (TextInputLayout) findViewById(R.id.til_correo);
-        tilContraseña = (TextInputLayout) findViewById(R.id.til_contraseña);
+        etCorreo = (EditText) findViewById(R.id.contraseña);
+        etContraseña = (EditText) findViewById(R.id.matricula);
+        tilCorreo = (TextInputLayout) findViewById(R.id.til_contraseña);
+        tilContraseña = (TextInputLayout) findViewById(R.id.til_matricula);
         contenedor = (ViewGroup) findViewById(R.id.contenedor);
         dialogo = new ProgressDialog(this);
         dialogo.setTitle("Verificando usuario");
