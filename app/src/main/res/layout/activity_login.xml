@@ -18,7 +18,8 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:onClick="autentificarGoogle">
 
             <ImageView
                 android:id="@+id/imageView2"
@@ -58,8 +59,8 @@
                     android:fontFamily="@font/raleway_font"
                     android:text="Correo electrónico:"
                     android:textColor="@color/white"
-                    app:layout_constraintBottom_toTopOf="@+id/til_contraseña"
-                    app:layout_constraintStart_toStartOf="@+id/til_contraseña" />
+                    app:layout_constraintBottom_toTopOf="@+id/til_correo_login"
+                    app:layout_constraintStart_toStartOf="@+id/til_correo_login" />
 
                 <TextView
                     android:id="@+id/textView2"
@@ -81,11 +82,11 @@
                     android:fontFamily="@font/raleway_font"
                     android:text="Contraseña:"
                     android:textColor="@color/white"
-                    app:layout_constraintBottom_toTopOf="@+id/til_matricula"
-                    app:layout_constraintStart_toStartOf="@+id/til_matricula" />
+                    app:layout_constraintBottom_toTopOf="@+id/til_contraseña_login"
+                    app:layout_constraintStart_toStartOf="@+id/til_contraseña_login" />
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/til_contraseña"
+                    android:id="@+id/til_correo_login"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="16dp"
@@ -102,7 +103,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/textView2">
 
                     <EditText
-                        android:id="@+id/contraseña"
+                        android:id="@+id/correo_login"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/raleway_font"
@@ -131,7 +132,7 @@
                     app:strokeWidth="3dp" />
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/til_matricula"
+                    android:id="@+id/til_contraseña_login"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="16dp"
@@ -145,10 +146,10 @@
                     app:boxCornerRadiusTopStart="10dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/til_contraseña">
+                    app:layout_constraintTop_toBottomOf="@+id/til_correo_login">
 
                     <EditText
-                        android:id="@+id/matricula"
+                        android:id="@+id/contraseña_login"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/raleway_font"
@@ -180,7 +181,7 @@
                     android:textColor="@color/white"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/til_matricula" />
+                    app:layout_constraintTop_toBottomOf="@+id/til_contraseña_login" />
 
                 <com.google.android.gms.common.SignInButton
                     android:id="@+id/btnSignInWithGoogle"

@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,8 +23,6 @@ import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.GoogleAuthProvider;
-
-import org.w3c.dom.Text;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -50,8 +47,8 @@ public class RegisterActivity extends AppCompatActivity {
         etNombre=(EditText) findViewById(R.id.nombre_register);
         tilMatricula = (TextInputLayout) findViewById(R.id.til_matricula);
         tilNombre = (TextInputLayout) findViewById(R.id.til_nombre);
-        tilCorreo = (TextInputLayout) findViewById(R.id.til_correo);
-        tilContraseña = (TextInputLayout) findViewById(R.id.til_contraseña);
+        tilCorreo = (TextInputLayout) findViewById(R.id.til_correo_register);
+        tilContraseña = (TextInputLayout) findViewById(R.id.til_contraseña_register);
         contenedor = (ViewGroup) findViewById(R.id.contenedor);
         dialogo = new ProgressDialog(this);
         dialogo.setTitle("Verificando usuario");
