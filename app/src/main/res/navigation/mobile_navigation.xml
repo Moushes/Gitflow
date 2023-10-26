@@ -7,24 +7,24 @@
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.example.autonest.ui.home.HomeFragment"
+        android:name="com.example.proyectoiot.ui.home.HomeFragment"
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/nav_luz"
-        android:name="com.example.autonest.ui.luz.LuzFragment"
+        android:name="com.example.proyectoiot.ui.luz.LuzFragment"
         android:label="@string/menu_luz"
         tools:layout="@layout/fragment_home" />
 
 
     <fragment
         android:id="@+id/nav_parking"
-        android:name="com.example.autonest.ui.Parking.ParkingFragment"
+        android:name="com.example.proyectoiot.ui.Parking.ParkingFragment"
         android:label="@string/menu_parking"
         tools:layout="@layout/fragment_parking" />
     <fragment
         android:id="@+id/nav_cerrar_sesion"
-        android:name="com.example.autonest.ui.Logout.LogoutFragment"
+        android:name="com.example.proyectoiot.ui.Logout.LogoutFragment"
         android:label="@string/menu_cerrar_sesion"
         tools:layout="@layout/fragment_logout" />
 </navigation>
