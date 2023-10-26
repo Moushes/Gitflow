@@ -1,9 +1,14 @@
 package com.example.proyectoiot;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
+import android.widget.TextView;
 
+import com.google.android.gms.auth.api.Auth;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
@@ -15,11 +20,15 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.proyectoiot.databinding.ActivityMainBinding;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
+    private FirebaseAuth auth;
+    private TextView correo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,11 +71,19 @@ public class MainActivity extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
-}//mierda de git
-//esto es una prueba de que esta mierda funciona
+    private void cambiarcorreo(){
+            correo=findViewById(R.id.correo_header);
+            Bundle extras = getIntent().getExtras();
+            String userEmail = extras.getString("Correo");
+            correo.setText(userEmail);
+        }
 
-//el de arriba es tonto
-//Explosion masiva del git
-// son las 3:33
+    public void cerrarsesion(MenuItem item) {
+        // Cerrar la sesión actual del usuario
+        FirebaseAuth.getInstance().signOut();
+        Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
+        finish(); // Cierra la actividad actual
+    }
 
-//Todos los tontos digan hey
+}
