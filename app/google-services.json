@@ -22,6 +22,14 @@
           }
         },
         {
+          "client_id": "1099068980200-vbssb43vtv2klq1uf75c4tknebvs5nvb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.proyectoiot",
+            "certificate_hash": "0ea2673af01cf8e821b6e592e1713186c41203c3"
+          }
+        },
+        {
           "client_id": "1099068980200-0pn4h2ao5g4dr96vjv0ta48eg1ov78v8.apps.googleusercontent.com",
           "client_type": 3
         }

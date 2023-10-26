@@ -228,7 +228,7 @@
                     android:onClick="autentificarGoogle"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/register" />
+                    app:layout_constraintTop_toBottomOf="@+id/register"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
