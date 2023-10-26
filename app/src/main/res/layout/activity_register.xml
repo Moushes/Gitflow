@@ -1,3 +1,15 @@
+                <com.google.android.gms.common.SignInButton
+                    android:id="@+id/btnSignUpWithGoogle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginEnd="16dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/register" />
+
 <?xml version="1.0" encoding="utf-8"?>
 
 <RelativeLayout

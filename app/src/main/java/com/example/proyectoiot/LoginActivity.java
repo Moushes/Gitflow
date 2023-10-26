@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,6 +22,7 @@ import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 
 public class LoginActivity extends AppCompatActivity {
@@ -34,16 +34,14 @@ public class LoginActivity extends AppCompatActivity {
     private EditText etCorreo, etContraseña;
     private TextInputLayout tilCorreo, tilContraseña;
     private ProgressDialog dialogo;
-    private static final int RC_GOOGLE_SIGN_IN = 123;
-    GoogleSignInClient googleSignInClient;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        etCorreo = (EditText) findViewById(R.id.correo_login);
-        etContraseña = (EditText) findViewById(R.id.contraseña_login);
-        tilCorreo = (TextInputLayout) findViewById(R.id.til_contraseña);
-        tilContraseña = (TextInputLayout) findViewById(R.id.til_matricula);
+        etCorreo = (EditText) findViewById(R.id.correo);
+        etContraseña = (EditText) findViewById(R.id.contraseña);
+        tilCorreo = (TextInputLayout) findViewById(R.id.til_correo);
+        tilContraseña = (TextInputLayout) findViewById(R.id.til_contraseña);
         contenedor = (ViewGroup) findViewById(R.id.contenedor);
         dialogo = new ProgressDialog(this);
         dialogo.setTitle("Verificando usuario");
@@ -110,21 +108,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         }
     }
-    private void googleAuth(String idToken) {
-        AuthCredential credential = GoogleAuthProvider.getCredential(idToken,
-                null);
-        auth.signInWithCredential(credential)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            verificaSiUsuarioValidado();
-                        }else{
-                            mensaje(task.getException().getLocalizedMessage());
-                        }
-                    }
-                });
-    }
+
     private void mensaje(String mensaje) {
         Snackbar.make(contenedor, mensaje, Snackbar.LENGTH_LONG).show();
     }
