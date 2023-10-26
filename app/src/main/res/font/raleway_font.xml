@@ -3,5 +3,5 @@
     <font
         app:fontStyle="normal"
         app:fontWeight="400"
-        app:font="@font/Raleway_Regular" />
+        app:font="@font/raleway_regular" />
 </font-family>
