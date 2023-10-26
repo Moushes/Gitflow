@@ -1,5 +1,7 @@
 package com.example.proyectoiot;
 
+import static com.example.proyectoiot.RegisterActivity.RC_GOOGLE_SIGN_IN;
+
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,18 +14,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
-import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputLayout;
-import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.auth.GoogleAuthProvider;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -38,10 +36,10 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        etCorreo = (EditText) findViewById(R.id.correo);
-        etContraseña = (EditText) findViewById(R.id.contraseña);
-        tilCorreo = (TextInputLayout) findViewById(R.id.til_correo);
-        tilContraseña = (TextInputLayout) findViewById(R.id.til_contraseña);
+        etCorreo = (EditText) findViewById(R.id.correo_login);
+        etContraseña = (EditText) findViewById(R.id.contraseña_login);
+        tilCorreo = (TextInputLayout) findViewById(R.id.til_correo_login);
+        tilContraseña = (TextInputLayout) findViewById(R.id.til_contraseña_login);
         contenedor = (ViewGroup) findViewById(R.id.contenedor);
         dialogo = new ProgressDialog(this);
         dialogo.setTitle("Verificando usuario");
