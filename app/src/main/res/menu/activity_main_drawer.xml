@@ -20,6 +20,7 @@
         <item
             android:id="@+id/nav_cerrar_sesion"
             android:icon="@drawable/ic_menu_cerrar_sesion"
+            android:onClick="cerrarsesion"
             android:title="@string/menu_cerrar_sesion" />
     </group>
 </menu>
