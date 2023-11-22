@@ -14,7 +14,7 @@
 
         <!-- Configura LoginActivity como la actividad de inicio -->
         <activity
-            android:name=".LoginActivity"
+            android:name=".presentation.LoginActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.ProyectoIoT.NoActionBar">
@@ -27,11 +27,15 @@
         <!-- Define MainActivity como la actividad a la que redirige LoginActivity después de iniciar sesión -->
 
         <activity
-            android:name=".MainActivity"
+            android:name=".presentation.MainActivity"
             android:theme="@style/Theme.ProyectoIoT.NoActionBar">
         </activity>
         <activity
-            android:name=".RegisterActivity"
+            android:name=".presentation.PerfilActivity"
+            android:theme="@style/Theme.ProyectoIoT.NoActionBar">
+        </activity>
+        <activity
+            android:name=".presentation.RegisterActivity"
             android:theme="@style/Theme.ProyectoIoT.NoActionBar">
         </activity>
     </application>
