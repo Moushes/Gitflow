@@ -29,6 +29,7 @@ import com.google.firebase.auth.GoogleAuthProvider;
 public class LoginActivity extends AppCompatActivity {
     private static final int RC_GOOGLE_SIGN_IN = 123;
     GoogleSignInClient googleSignInClient;
+    //private TwitterLoginButton btnTwitter;
 
     private FirebaseAuth auth = FirebaseAuth.getInstance();
     private String correo = "";
@@ -40,6 +41,12 @@ public class LoginActivity extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        /*Twitter.initialize(new TwitterConfig.Builder(this)
+                .logger(new DefaultLogger(Log.DEBUG))
+                .twitterAuthConfig(new TwitterAuthConfig(getString(R.string.
+                        twitter_consumer_key), getString(R.string.twitter_consumer_secret)))
+                .debug(true)
+                .build());*/
         setContentView(R.layout.activity_login);
         etCorreo = (EditText) findViewById(R.id.correo_login);
         etContraseña = (EditText) findViewById(R.id.contraseña_login);
@@ -49,7 +56,7 @@ public class LoginActivity extends AppCompatActivity {
         dialogo = new ProgressDialog(this);
         dialogo.setTitle("Verificando usuario");
         dialogo.setMessage("Por favor espere...");
-        verificaSiUsuarioValidado();
+
         //Google
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(
                 GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -57,6 +64,17 @@ public class LoginActivity extends AppCompatActivity {
                 .requestEmail()
                 .build();
         googleSignInClient = GoogleSignIn.getClient(this, gso);
+        //Twitter
+        /*btnTwitter = (TwitterLoginButton) findViewById(R.id.twitter);
+        btnTwitter.setCallback(new Callback<TwitterSession>() {
+            @Override public void success(Result<TwitterSession> result) {
+                twitterAuth(result.data);
+            }
+            @Override public void failure(TwitterException exception) {
+                mensaje(exception.getLocalizedMessage());
+            }
+        });*/
+        verificaSiUsuarioValidado();
 
     }
 
