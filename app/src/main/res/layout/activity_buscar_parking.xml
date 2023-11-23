@@ -65,7 +65,7 @@
                 app:srcCompat="@drawable/ic_menu_parking_blanco" />
 
             <TextView
-                android:id="@+id/nombreParking"
+                android:id="@+id/nombreTextView"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -75,14 +75,14 @@
                 android:textSize="22dp"
                 android:fontFamily="@font/raleway_font"
 
-                app:layout_constraintBottom_toTopOf="@+id/calleParking"
+                app:layout_constraintBottom_toTopOf="@+id/localizacionTextView"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/imagenParking"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.5" />
 
             <TextView
-                android:id="@+id/calleParking"
+                android:id="@+id/localizacionTextView"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
@@ -92,20 +92,20 @@
                 android:fontFamily="@font/raleway_font"
 
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/disponibilidad"
+                app:layout_constraintEnd_toStartOf="@+id/plazasTextView"
                 app:layout_constraintStart_toEndOf="@+id/imagenParking"
-                app:layout_constraintTop_toBottomOf="@+id/nombreParking"
+                app:layout_constraintTop_toBottomOf="@+id/nombreTextView"
                 app:layout_constraintVertical_bias="0.5" />
 
             <TextView
-                android:id="@+id/disponibilidad"
+                android:id="@+id/plazasTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="12dp"
                 android:text="Ocupado"
                 android:textColor="@color/red"
                 android:fontFamily="@font/raleway_font"
-                app:layout_constraintBottom_toBottomOf="@+id/calleParking"
+                app:layout_constraintBottom_toBottomOf="@+id/localizacionTextView"
                 app:layout_constraintEnd_toEndOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
