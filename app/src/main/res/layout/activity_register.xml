@@ -112,6 +112,7 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="16dp"
 
+                    android:backgroundTint="@color/verdeAutoNest"
                     android:hapticFeedbackEnabled="false"
                     android:onClick="registroCorreo"
                     android:text="Registrarse"
