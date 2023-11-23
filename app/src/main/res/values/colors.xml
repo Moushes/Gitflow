@@ -5,4 +5,5 @@
     <color name="verdeAutoNest">#00DC94</color>
     <color name="red">#FF0800</color>
     <color name="green">#61FF00</color>
+    <color name="grey">#333333</color>
 </resources>

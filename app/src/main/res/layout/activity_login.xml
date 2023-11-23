@@ -120,6 +120,7 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="18dp"
 
+                    android:backgroundTint="@color/verdeAutoNest"
                     android:hapticFeedbackEnabled="false"
                     android:onClick="inicioSesiónCorreo"
                     android:text="Iniciar Sesión"
