@@ -66,12 +66,11 @@ public class NotificationsFragment extends Fragment {
                     String usuario = document.getString("nombre");
                     String email = document.getString("correo");
                     String matricula = document.getString("matricula");
-                    String contraseña = user.getUid();
+
 
                     editTextUsuario.setText(usuario);
                     editTextEmail.setText(email);
                     editTextMatricula.setText(matricula);
-                    editTextContraseña.setText(contraseña);
                 } else {
                     Log.d("Comprobacion", "El documento no existe");
                 }
@@ -85,21 +84,26 @@ public class NotificationsFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 // Aquí puedes iniciar la lógica para actualizar la información
-                actualizarInformacion(idUsuario,editTextUsuario.getText().toString(),editTextEmail.getText().toString(),editTextMatricula.getText().toString());
+                actualizarInformacion(idUsuario,editTextUsuario.getText().toString(),editTextEmail.getText().toString(),editTextMatricula.getText().toString(),editTextContraseña.getText().toString());
             }
         });
 
         return root;
     }
-    private void actualizarInformacion(String idUsuario, String nuevoNombre, String nuevoCorreo, String nuevaMatricula) {
+    private void actualizarInformacion(String idUsuario, String nuevoNombre, String nuevoCorreo, String nuevaMatricula,String nuevaContraseña) {
         // Obtén la referencia al documento del usuario
         DocumentReference usuarioRef = db.collection("Usuarios").document(idUsuario);
+        // Obtén la instancia de FirebaseAuth
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        // Obtiene el usuario actualmente autenticado
+        FirebaseUser user = mAuth.getCurrentUser();
 
         // Crea un mapa con los campos que deseas actualizar
         Map<String, Object> actualizaciones = new HashMap<>();
         actualizaciones.put("nombre", nuevoNombre);
         actualizaciones.put("correo", nuevoCorreo);
         actualizaciones.put("matricula", nuevaMatricula);
+        user.updatePassword(nuevaContraseña);
 
         // Actualiza el documento en Firestore
         usuarioRef.update(actualizaciones)
@@ -121,6 +125,44 @@ public class NotificationsFragment extends Fragment {
                     }
                 });
     }
+    private boolean verificaCampos() {
+       String correo = editTextEmail.getText().toString();
+        String contraseña = editTextContraseña.getText().toString();
+        String nombre = editTextUsuario.getText().toString();
+        String matricula = editTextMatricula.getText().toString();
+        editTextEmail.setError("");
+        editTextContraseña.setError("");
+        editTextUsuario.setError("");
+        editTextMatricula.setError("");
+
+        if (nombre.isEmpty()) {
+            editTextUsuario.setError("Introduce un nombre");
+        } else if (!nombre.matches("^[A-Za-z\\s]+$")) {
+            editTextUsuario.setError("Nombre no válido");
+        }
+        if (correo.isEmpty()) {
+            editTextEmail.setError("Introduce un correo");
+        } else if (!correo.matches(".+@.+[.].+")) {
+            editTextEmail.setError("Correo no válido");
+        }
+        if (contraseña.isEmpty()) {
+            editTextContraseña.setError("Introduce una contraseña");
+        } else if (contraseña.length() < 6) {
+            editTextContraseña.setError("Ha de contener al menos 6 caracteres");
+        } else if (!contraseña.matches(".*[0-9].*")) {
+            editTextContraseña.setError("Ha de contener un número");
+        } else if (!contraseña.matches(".*[A-Z].*")) {
+            editTextContraseña.setError("Ha de contener una letra mayúscula");
+        }
+        if(matricula.isEmpty()) {
+            editTextMatricula.setError("Introduzca una matricula");
+        }
+        else{
+            return true;
+        }
+        return false;
+    }
+
 
 
     @Override
