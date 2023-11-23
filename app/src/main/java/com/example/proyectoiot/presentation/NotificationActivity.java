@@ -1,0 +1,4 @@
+package com.example.proyectoiot.presentation;
+
+public class NotificationActivity {
+}

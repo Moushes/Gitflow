@@ -1,5 +1,6 @@
 package com.example.proyectoiot.ui.home;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,7 +11,10 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.proyectoiot.R;
 import com.example.proyectoiot.databinding.FragmentHomeBinding;
+import com.example.proyectoiot.ui.home.HomeViewModel;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class HomeFragment extends Fragment {
 
@@ -26,6 +30,18 @@ public class HomeFragment extends Fragment {
 
         final TextView textView = binding.textHome;
         homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+
+        // Obtener una referencia al botón flotante
+        FloatingActionButton fabNotification = root.findViewById(R.id.fab_notification);
+
+        // Agregar un OnClickListener al botón flotante
+        fabNotification.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
         return root;
     }
 
