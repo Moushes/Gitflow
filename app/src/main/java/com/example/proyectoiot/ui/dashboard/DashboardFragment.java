@@ -1,5 +1,7 @@
 package com.example.proyectoiot.ui.dashboard;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +19,7 @@ import com.example.proyectoiot.databinding.FragmentDashboardBinding;
 import com.example.proyectoiot.model.Parking;
 import com.example.proyectoiot.model.ParkingAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 
@@ -47,6 +50,19 @@ public class DashboardFragment extends Fragment {
 
         adapter = new ParkingAdapter(options);
         recyclerView.setAdapter(adapter);
+
+        // Agregar un OnClickListener al botón flotante para abrir el mapa de Google
+        FloatingActionButton fabMap = root.findViewById(R.id.fab_map);
+        fabMap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Abrir el mapa de Google
+                Uri gmmIntentUri = Uri.parse("geo:0,0?q=latitude,longitude(label)");
+                Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+                mapIntent.setPackage("com.google.android.apps.maps");
+                startActivity(mapIntent);
+            }
+        });
 
         return root;
     }

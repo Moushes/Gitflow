@@ -15,4 +15,8 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="twitter_consumer_key"
+        translatable="false">Hoqav02Z04fQ9I2VCfvcs1uyi</string>
+    <string name="twitter_consumer_secret" translatable=
+        "false">SRIGR65uId2nUGTM8dxsYZGPgY8J3viyWHwjWaObUI4pldIvKN</string>
 </resources>
