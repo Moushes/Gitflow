@@ -1,15 +1,29 @@
 package com.example.proyectoiot.presentation;
 
+import static android.Manifest.permission.ACCESS_FINE_LOCATION;
+
+
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 import com.example.proyectoiot.R;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 
-public class VistaParkingActivity extends AppCompatActivity {
+public class VistaParkingActivity extends AppCompatActivity
+        implements OnMapReadyCallback {
     private TextView Nombre,localizacion,plazaslibres;
+    private GoogleMap mapa;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -26,6 +40,10 @@ public class VistaParkingActivity extends AppCompatActivity {
         Nombre.setText(nombre);
         localizacion.setText(lugar);
         plazaslibres.setText(plazas);
+
+        SupportMapFragment mapFragment = (SupportMapFragment)
+                getSupportFragmentManager().findFragmentById(R.id.mapa);
+        mapFragment.getMapAsync(this);
     }
     @Override
     public void onBackPressed() {
@@ -33,4 +51,18 @@ public class VistaParkingActivity extends AppCompatActivity {
         // You can also use Intent to navigate back without finishing the MainActivity
     }
 
+    @Override public void onMapReady(GoogleMap googleMap) {
+        String nombre = getIntent().getStringExtra("Nombre");
+        mapa = googleMap;
+        mapa.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+        if (ActivityCompat.checkSelfPermission(this,
+                ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+            mapa.setMyLocationEnabled(true);
+            mapa.getUiSettings().setZoomControlsEnabled(true);
+            mapa.getUiSettings().setCompassEnabled(true);
+            mapa.addMarker(new MarkerOptions().position(new LatLng(123, 123))
+                    .title(nombre));
+        }
+    }
 }
+

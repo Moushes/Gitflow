@@ -84,6 +84,16 @@
                 android:textColor="@color/red"
                 app:layout_constraintBottom_toBottomOf="@+id/localizacionTextView"
                 app:layout_constraintEnd_toEndOf="parent" />
+            <TextView
+                android:id="@+id/latitudTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone" />
+            <TextView
+                android:id="@+id/altitudTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 

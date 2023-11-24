@@ -37,6 +37,7 @@ android {
 
 dependencies {
     //implementation("com.twitter.sdk.android:twitter-core:3.1.1")
+    implementation("com.google.android.gms:play-services-maps:18.1.0")
     implementation("com.google.firebase:firebase-firestore:24.9.1")
     implementation("com.firebaseui:firebase-ui-firestore:8.0.2")
     implementation("androidx.appcompat:appcompat:1.6.1")

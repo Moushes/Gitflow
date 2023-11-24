@@ -65,7 +65,7 @@ public class ParkingAdapter extends FirestoreRecyclerAdapter<Parking, ParkingAda
             nombreTextView.setText(parking.getNombre());
             localizacionTextView.setText(parking.getDireccion());
             plazasTextView.setText(String.valueOf(parking.getPlazas()));
-            Log.d("Plazas", String.valueOf(parking.getPlazas()));
+
         }
     }
 }
