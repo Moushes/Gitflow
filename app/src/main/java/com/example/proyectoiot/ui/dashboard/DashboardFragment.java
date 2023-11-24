@@ -84,7 +84,7 @@ public class DashboardFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        adapter.notifyDataSetChanged(); // Update the adapter when returning to MainActivity
+        adapter.notifyDataSetChanged();
     }
 
     @Override
