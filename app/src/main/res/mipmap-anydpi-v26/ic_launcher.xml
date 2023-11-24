@@ -3,4 +3,4 @@
     <background android:drawable="@drawable/ic_launcher_background" />
     <foreground android:drawable="@drawable/autonest_no_texto" />
     <monochrome android:drawable="@drawable/autonest_no_texto" />
-</adaptive-icon>S
+</adaptive-icon>
