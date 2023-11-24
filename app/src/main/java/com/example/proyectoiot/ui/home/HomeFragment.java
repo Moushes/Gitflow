@@ -18,10 +18,15 @@ import com.example.proyectoiot.presentation.FaqActivity;
 import com.example.proyectoiot.presentation.MainActivity;
 import com.example.proyectoiot.ui.home.HomeViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class HomeFragment extends Fragment {
 
     private FragmentHomeBinding binding;
+    private TextView usuario;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -30,21 +35,21 @@ public class HomeFragment extends Fragment {
 
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-
-        final TextView textView = binding.textHome;
-        homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        usuario=root.findViewById(R.id.home_usuario);
+        //final TextView textView = binding.textHome;
+        //homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
 
         // Obtener una referencia al botón flotante
-        FloatingActionButton fabNotification = root.findViewById(R.id.fab_notification);
+        //FloatingActionButton fabNotification = root.findViewById(R.id.fab_notification);
         Button faqbuttonme = root.findViewById(R.id.boton_faq);
 
         // Agregar un OnClickListener al botón flotante
-        fabNotification.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        //fabNotification.setOnClickListener(new View.OnClickListener() {
+            //@Override
+            //public void onClick(View view) {
 
-            }
-        });
+           // }
+        //});
 
         faqbuttonme.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,13 +59,37 @@ public class HomeFragment extends Fragment {
 
             }
         });
-
+        // Obtén la instancia de FirebaseAuth
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        // Obtiene el usuario actualmente autenticado
+        FirebaseUser user = mAuth.getCurrentUser();
+        obtenerInformacionUsuario(user.getUid());
 
         return root;
-
-
-
     }
+    private void obtenerInformacionUsuario(String uid) {
+        // Referencia a la colección "Usuarios" en Firestore
+
+        DocumentReference usuarioRef = FirebaseFirestore.getInstance().collection("Usuarios").document(uid);
+
+        usuarioRef.get()
+                .addOnSuccessListener(documentSnapshot -> {
+                    if (documentSnapshot.exists()) {
+                        // El documento existe, obten el valor del campo "Nombre"
+                        String nombreUsuario = documentSnapshot.getString("nombre");
+                        // Actualiza la interfaz de usuario con el nombre obtenido
+                        usuario.setText(nombreUsuario);
+                    } else {
+                        // El documento no existe
+                        usuario.setText("!Hola¡");
+                    }
+                })
+                .addOnFailureListener(e -> {
+                    // Error al obtener el documento
+                    usuario.setText("¡El documento fallo en cargar!");
+                });
+    }
+
 
     @Override
     public void onDestroyView() {

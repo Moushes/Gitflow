@@ -46,15 +46,7 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         setSupportActionBar(binding.toolbar);
-        bienvenida = findViewById(R.id.Saludo);
         FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
-
-        if (currentUser != null) {
-            // El usuario está autenticado
-            String uid = currentUser.getUid();
-            bienvenida.setText(uid);
-            obtenerInformacionUsuario(uid);
-        }
 
         BottomNavigationView navView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
@@ -66,28 +58,6 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
     }
-    private void obtenerInformacionUsuario(String uid) {
-        // Referencia a la colección "Usuarios" en Firestore
-        DocumentReference usuarioRef = FirebaseFirestore.getInstance().collection("Usuarios").document(uid);
-
-        usuarioRef.get()
-                .addOnSuccessListener(documentSnapshot -> {
-                    if (documentSnapshot.exists()) {
-                        // El documento existe, obten el valor del campo "Nombre"
-                        String nombreUsuario = documentSnapshot.getString("nombre");
-                        // Actualiza la interfaz de usuario con el nombre obtenido
-                        bienvenida.setText("¡Hola, " + nombreUsuario + "!");
-                    } else {
-                        // El documento no existe
-                        bienvenida.setText("!Hola¡");
-                    }
-                })
-                .addOnFailureListener(e -> {
-                    // Error al obtener el documento
-                    bienvenida.setText("¡El documento fallo en cargar!");
-                });
-    }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
