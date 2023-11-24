@@ -38,6 +38,10 @@
             android:name=".presentation.RegisterActivity"
             android:theme="@style/Theme.ProyectoIoT.NoActionBar">
         </activity>
+        <activity
+            android:name=".presentation.VistaParkingActivity"
+            android:theme="@style/Theme.ProyectoIoT.NoActionBar">
+        </activity>
     </application>
 
 </manifest>
