@@ -42,6 +42,12 @@
             android:name=".presentation.VistaParkingActivity"
             android:theme="@style/Theme.ProyectoIoT.NoActionBar">
         </activity>
+
+        <activity
+            android:name=".presentation.FaqActivity"
+            android:theme="@style/Theme.ProyectoIoT.NoActionBar">
+        </activity>
+
     </application>
 
 </manifest>

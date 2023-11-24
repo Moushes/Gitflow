@@ -8,58 +8,124 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@drawable/fondomain"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <EditText
             android:id="@+id/editTextUsuario"
-            android:layout_width="match_parent"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="0dp"
-            android:layout_marginTop="124dp"
-            android:hint="Usuario" />
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="270dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginBottom="410dp"
+            android:background="@drawable/edittext_redondo"
+            android:hint="Usuario"
+            android:paddingLeft="14dp" />
 
         <EditText
             android:id="@+id/editTextEmail"
-            android:layout_width="match_parent"
+            android:layout_width="342dp"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="0dp"
-            android:layout_marginTop="185dp"
-            android:hint="Email" />
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="340dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginBottom="340dp"
+            android:background="@drawable/edittext_redondo"
+            android:hint="Email"
+            android:paddingLeft="14dp" />
 
         <EditText
             android:id="@+id/editTextMatricula"
-            android:layout_width="match_parent"
+            android:layout_width="269dp"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="0dp"
-            android:layout_marginTop="249dp"
-            android:hint="Matrícula" />
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="480dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginBottom="200dp"
+            android:background="@drawable/edittext_redondo"
+            android:hint="Matrícula"
+            android:paddingLeft="14dp" />
 
         <EditText
             android:id="@+id/editTextContraseña"
-            android:layout_width="match_parent"
+            android:layout_width="307dp"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="0dp"
-            android:layout_marginTop="305dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="410dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginBottom="270dp"
+            android:background="@drawable/edittext_redondo"
             android:hint="Contraseña"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            android:paddingLeft="14dp" />
 
         <Button
             android:id="@+id/btnActualizarInformacion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginTop="50dp"
-            android:layout_marginEnd="83dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="94dp"
+            android:layout_marginTop="561dp"
+            android:layout_marginEnd="76dp"
+            android:layout_marginBottom="122dp"
+            android:background="@drawable/boton_usuario"
             android:text="Actualizar Información" />
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="wrap_content"
+            android:layout_height="42dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="170dp"
+            android:layout_marginTop="93dp"
+            android:layout_marginEnd="163dp"
+            android:layout_marginBottom="596dp"
+            android:text="Hola"
+            android:textColor="#FFFFFF"
+            android:textSize="34sp" />
+
+        <TextView
+            android:id="@+id/textView17"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="122dp"
+            android:layout_marginTop="145dp"
+            android:layout_marginEnd="108dp"
+            android:layout_marginBottom="543dp"
+            android:text="Usuario!!"
+            android:textColor="#FFFFFF"
+            android:textSize="34sp" />
 
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
