@@ -18,7 +18,6 @@
 
         <View
             android:id="@+id/view"
-            tools:layout_editor_absoluteX="0dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/fondo_redondeado_gris"

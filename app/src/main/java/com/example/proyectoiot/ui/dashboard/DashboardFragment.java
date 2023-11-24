@@ -64,6 +64,7 @@ public class DashboardFragment extends Fragment {
             }
         });
 
+
         return root;
     }
 
@@ -79,6 +80,11 @@ public class DashboardFragment extends Fragment {
         super.onStop();
         // Detener la escucha del adaptador cuando el fragmento no está visible
         adapter.stopListening();
+    }
+    @Override
+    public void onResume() {
+        super.onResume();
+        adapter.notifyDataSetChanged(); // Update the adapter when returning to MainActivity
     }
 
     @Override
