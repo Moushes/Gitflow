@@ -38,8 +38,7 @@
         app:layout_constraintHorizontal_bias="0.172"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.831"
-        android:onClick="escuchador_faq"/>
+        app:layout_constraintVertical_bias="0.831" />
 
     <Button
         android:id="@+id/boton_Historial"
@@ -54,8 +53,7 @@
         app:layout_constraintHorizontal_bias="0.778"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.686"
-        android:onClick="escuchador_historial"/>
+        app:layout_constraintVertical_bias="0.686"/>
 
     <Button
         android:id="@+id/boton_Buscar_Parking"
@@ -64,7 +62,6 @@
         android:width="140dp"
         android:height="140dp"
         android:background="@drawable/boton_redondeado_333333"
-        android:backgroundColor="#333333"
         android:text="Buscar Parking"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -72,7 +69,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.358"
-        android:onClick="escuchador_buscarP"/>
+        />
 
     <TextView
         android:id="@+id/textView6"
@@ -88,7 +85,7 @@
         app:layout_constraintVertical_bias="0.111" />
 
     <TextView
-        android:id="@+id/Texto_Usuario"
+        android:id="@+id/home_usuario"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Usuario!!"
@@ -119,7 +116,7 @@
         android:width="121dp"
         android:height="121dp"
         android:background="@drawable/boton_redondeado_333333"
-        android:backgroundColor="#333333"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.913"
@@ -134,7 +131,7 @@
         android:width="121dp"
         android:height="121dp"
         android:background="@drawable/boton_redondeado_333333"
-        android:backgroundColor="#333333"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.353"
@@ -149,7 +146,6 @@
         android:width="120dp"
         android:height="120dp"
         android:background="@drawable/boton_redondeado_333333"
-        android:backgroundColor="#333333"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.385"
@@ -164,7 +160,7 @@
         android:width="121dp"
         android:height="121dp"
         android:background="@drawable/boton_redondeado_333333"
-        android:backgroundColor="#333333"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.78"
@@ -179,7 +175,7 @@
         android:width="121dp"
         android:height="121dp"
         android:background="@drawable/boton_redondeado_333333"
-        android:backgroundColor="#333333"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.239"
@@ -194,7 +190,6 @@
         android:width="121dp"
         android:height="121dp"
         android:background="@drawable/boton_redondeado_333333"
-        android:backgroundColor="#333333"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.919"

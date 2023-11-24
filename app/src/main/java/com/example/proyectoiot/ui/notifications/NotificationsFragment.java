@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -33,6 +34,7 @@ public class NotificationsFragment extends Fragment {
     private FragmentNotificationsBinding binding;
     private EditText editTextUsuario, editTextEmail, editTextMatricula, editTextContraseña;
     private FirebaseFirestore db;
+    private TextView usuario;
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -46,6 +48,7 @@ public class NotificationsFragment extends Fragment {
         editTextEmail = root.findViewById(R.id.editTextEmail);
         editTextMatricula = root.findViewById(R.id.editTextMatricula);
         editTextContraseña = root.findViewById(R.id.editTextContraseña);
+        usuario=root.findViewById(R.id.textoUsuario);
         db = FirebaseFirestore.getInstance();
 
         // Obtén la instancia de FirebaseAuth
@@ -80,6 +83,7 @@ public class NotificationsFragment extends Fragment {
         });
         // Configura el botón y agrega un listener
         Button btnActualizarInformacion = root.findViewById(R.id.btnActualizarInformacion);
+        obtenerInformacionUsuario(user.getUid());
         btnActualizarInformacion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -161,6 +165,28 @@ public class NotificationsFragment extends Fragment {
             return true;
         }
         return false;
+    }
+    private void obtenerInformacionUsuario(String uid) {
+        // Referencia a la colección "Usuarios" en Firestore
+
+        DocumentReference usuarioRef = FirebaseFirestore.getInstance().collection("Usuarios").document(uid);
+
+        usuarioRef.get()
+                .addOnSuccessListener(documentSnapshot -> {
+                    if (documentSnapshot.exists()) {
+                        // El documento existe, obten el valor del campo "Nombre"
+                        String nombreUsuario = documentSnapshot.getString("nombre");
+                        // Actualiza la interfaz de usuario con el nombre obtenido
+                        usuario.setText(nombreUsuario);
+                    } else {
+                        // El documento no existe
+                        usuario.setText("!Hola¡");
+                    }
+                })
+                .addOnFailureListener(e -> {
+                    // Error al obtener el documento
+                    usuario.setText("¡El documento fallo en cargar!");
+                });
     }
 
 

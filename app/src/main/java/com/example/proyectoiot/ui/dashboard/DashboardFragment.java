@@ -18,6 +18,7 @@ import com.example.proyectoiot.R;
 import com.example.proyectoiot.databinding.FragmentDashboardBinding;
 import com.example.proyectoiot.model.Parking;
 import com.example.proyectoiot.model.ParkingAdapter;
+import com.example.proyectoiot.model.Usuario;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -28,6 +29,7 @@ public class DashboardFragment extends Fragment {
     private FragmentDashboardBinding binding;
     private RecyclerView recyclerView;
     private ParkingAdapter adapter;
+
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
