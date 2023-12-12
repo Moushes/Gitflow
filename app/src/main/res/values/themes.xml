@@ -11,4 +11,8 @@
     <style name="Theme.ProyectoIoT.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.ProyectoIoT.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="MyNightButtonStyle" parent="Theme.ProyectoIoT">
+        <item name="colorButtonNormal">@color/grey</item>
+    </style>
 </resources>
