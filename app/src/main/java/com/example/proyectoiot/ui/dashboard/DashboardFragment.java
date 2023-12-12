@@ -53,20 +53,6 @@ public class DashboardFragment extends Fragment {
         adapter = new ParkingAdapter(options);
         recyclerView.setAdapter(adapter);
 
-        // Agregar un OnClickListener al botón flotante para abrir el mapa de Google
-        FloatingActionButton fabMap = root.findViewById(R.id.fab_map);
-        fabMap.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Abrir el mapa de Google
-                Uri gmmIntentUri = Uri.parse("geo:0,0?q=latitude,longitude(label)");
-                Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
-                mapIntent.setPackage("com.google.android.apps.maps");
-                startActivity(mapIntent);
-            }
-        });
-
-
         return root;
     }
 

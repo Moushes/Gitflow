@@ -24,6 +24,7 @@ import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 
 public class LoginActivity extends AppCompatActivity {
@@ -79,16 +80,19 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void verificaSiUsuarioValidado() {
-        if (auth.getCurrentUser() != null) {
-            correo=auth.getCurrentUser().getEmail().toString();
+        FirebaseUser currentUser = auth.getCurrentUser();
+        if (currentUser != null) {
+            if (currentUser.isEmailVerified()) {
+                correo = auth.getCurrentUser().getEmail().toString();
 
-            Intent i = new Intent(this, MainActivity.class);
-            i.putExtra("Correo",correo);
-            i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP
-                    | Intent.FLAG_ACTIVITY_NEW_TASK
-                    | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-            startActivity(i);
-            finish();
+                Intent i = new Intent(this, MainActivity.class);
+                i.putExtra("Correo", correo);
+                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP
+                        | Intent.FLAG_ACTIVITY_NEW_TASK
+                        | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(i);
+                finish();
+            }
         }
     }
 
