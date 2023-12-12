@@ -1,8 +1,10 @@
 package com.example.proyectoiot.ui.notifications;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -16,6 +18,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.proyectoiot.R;
 import com.example.proyectoiot.databinding.FragmentNotificationsBinding;
+import com.example.proyectoiot.presentation.LoginActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -35,6 +38,7 @@ public class NotificationsFragment extends Fragment {
     private EditText editTextUsuario, editTextEmail, editTextMatricula, editTextContraseña;
     private FirebaseFirestore db;
     private TextView usuario;
+    private Button cerrarsesion;
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -49,6 +53,7 @@ public class NotificationsFragment extends Fragment {
         editTextMatricula = root.findViewById(R.id.editTextMatricula);
         editTextContraseña = root.findViewById(R.id.editTextContraseña);
         usuario=root.findViewById(R.id.textoUsuario);
+        cerrarsesion=root.findViewById(R.id.btnCerrarSesion);
         db = FirebaseFirestore.getInstance();
 
         // Obtén la instancia de FirebaseAuth
@@ -63,24 +68,28 @@ public class NotificationsFragment extends Fragment {
         db.collection("Usuarios").document(idUsuario).get().addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
                 DocumentSnapshot document = task.getResult();
-                Log.d("Comprobacion", "Ha entrado en la coleccion");
+                Log.d("Comprobacion", "Ha entrado en la colección");
                 if (document.exists()) {
                     // Aquí obtén los datos del documento y configura los EditText correspondientes
                     String usuario = document.getString("nombre");
                     String email = document.getString("correo");
                     String matricula = document.getString("matricula");
 
-
-                    editTextUsuario.setText(usuario);
-                    editTextEmail.setText(email);
-                    editTextMatricula.setText(matricula);
+                    editTextUsuario.setText(usuario != null ? usuario : "Sin nombre registrado");
+                    editTextEmail.setText(email != null ? email : "Sin correo registrado");
+                    editTextMatricula.setText(matricula != null ? matricula : "Sin matrícula registrada");
                 } else {
                     Log.d("Comprobacion", "El documento no existe");
+                    // Configura los EditText con mensajes indicando que no hay información disponible
+                    editTextUsuario.setText("Sin nombre registrado");
+                    editTextEmail.setText("Sin correo registrado");
+                    editTextMatricula.setText("Sin matrícula registrada");
                 }
             } else {
-                Log.d("Comprobacion", "No ha entrado en la coleccion");
+                Log.d("Comprobacion", "No ha entrado en la colección");
             }
         });
+
         // Configura el botón y agrega un listener
         Button btnActualizarInformacion = root.findViewById(R.id.btnActualizarInformacion);
         obtenerInformacionUsuario(user.getUid());
@@ -89,6 +98,12 @@ public class NotificationsFragment extends Fragment {
             public void onClick(View v) {
                 // Aquí puedes iniciar la lógica para actualizar la información
                 actualizarInformacion(idUsuario,editTextUsuario.getText().toString(),editTextEmail.getText().toString(),editTextMatricula.getText().toString(),editTextContraseña.getText().toString());
+            }
+        });
+        cerrarsesion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                cerrarsesion();
             }
         });
 
@@ -187,6 +202,13 @@ public class NotificationsFragment extends Fragment {
                     // Error al obtener el documento
                     usuario.setText("¡El documento fallo en cargar!");
                 });
+    }
+    public void cerrarsesion() {
+        // Cerrar la sesión actual del usuario
+        // Obtén la instancia de FirebaseAuth
+        FirebaseAuth.getInstance().signOut();
+        Intent intent = new Intent(requireContext(), LoginActivity.class);
+        startActivity(intent);
     }
 
 

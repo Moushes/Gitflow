@@ -74,7 +74,7 @@ public class RegisterActivity extends AppCompatActivity {
     private void verificaSiUsuarioValidado() {
         if (auth.getCurrentUser() != null) {
             agregarUsuarioAFirestore(new Usuario(nombre,correo,matricula));
-            Intent i = new Intent(this, MainActivity.class);
+            Intent i = new Intent(this, LoginActivity.class);
             i.putExtra("Correo", correo);
             i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP
                     | Intent.FLAG_ACTIVITY_NEW_TASK
@@ -134,7 +134,7 @@ public class RegisterActivity extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
-                                verificaSiUsuarioValidado();
+                                enviarEmailVerificacion();
                             } else {
                                 dialogo.dismiss();
                                 mensaje(task.getException().getLocalizedMessage());
@@ -143,6 +143,25 @@ public class RegisterActivity extends AppCompatActivity {
                     });
         }
     }
+
+    private void enviarEmailVerificacion() {
+        FirebaseUser user = auth.getCurrentUser();
+        if (user != null) {
+            user.sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(@NonNull Task<Void> task) {
+                    dialogo.dismiss();
+                    if (task.isSuccessful()) {
+                        mensaje("Registro exitoso. Se ha enviado un correo de verificación a " + user.getEmail());
+                        verificaSiUsuarioValidado();
+                    } else {
+                        mensaje("No se pudo enviar el correo de verificación. " + task.getException().getLocalizedMessage());
+                    }
+                }
+            });
+        }
+    }
+
     public void agregarUsuarioAFirestore(Usuario usuario) {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
@@ -166,30 +185,38 @@ public class RegisterActivity extends AppCompatActivity {
 
         if (nombre.isEmpty()) {
             tilNombre.setError("Introduce un nombre");
+            return false;
         } else if (!nombre.matches("^[A-Za-z\\s]+$")) {
             tilNombre.setError("Nombre no válido");
+            return false;
         }
         if (correo.isEmpty()) {
             tilCorreo.setError("Introduce un correo");
+            return false;
         } else if (!correo.matches(".+@.+[.].+")) {
                 tilCorreo.setError("Correo no válido");
+            return false;
         }
         if (contraseña.isEmpty()) {
             tilContraseña.setError("Introduce una contraseña");
+            return false;
         } else if (contraseña.length() < 6) {
             tilContraseña.setError("Ha de contener al menos 6 caracteres");
+            return false;
         } else if (!contraseña.matches(".*[0-9].*")) {
             tilContraseña.setError("Ha de contener un número");
+            return false;
         } else if (!contraseña.matches(".*[A-Z].*")) {
             tilContraseña.setError("Ha de contener una letra mayúscula");
+            return false;
         }
         if(matricula.isEmpty()) {
             tilMatricula.setError("Introduzca una matricula");
+            return false;
         }
         else{
             return true;
             }
-            return false;
         }
     }
 
