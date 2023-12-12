@@ -1,10 +1,16 @@
 package com.example.proyectoiot.model;
 
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
+
 public class Parking {
     private String nombre;
     private String direccion;
-    private GeoPunto posicion;
     private int plazas;
+    private GeoPunto posicion;
 
 
     public Parking() {
@@ -13,8 +19,9 @@ public class Parking {
                     double latitud, int plazas){
         this.nombre = nombre;
         this.direccion = direccion;
-        posicion = new GeoPunto(longitud, latitud);
         this.plazas=plazas;
+        posicion = new GeoPunto(longitud, latitud);
+
     }
 
     public String getNombre() {
@@ -47,6 +54,8 @@ public class Parking {
     public void setPlazas (int plazas) {
         this.plazas = plazas;
     }
+
+
     @Override
     public String toString() {
         return "Usuario{" +
