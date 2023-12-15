@@ -12,7 +12,4 @@
 
     <style name="Theme.ProyectoIoT.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
-    <style name="Theme.ProyectoIoT.Night" parent="Theme.ProyectoIoT">
-        <item name="colorButtonNormal">@color/grey</item>
-    </style>
 </resources>
