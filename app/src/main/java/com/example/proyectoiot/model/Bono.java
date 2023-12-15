@@ -13,6 +13,14 @@ public class Bono {
 
     private int Disponibilidad;
 
+    public int getDisponibilidad() {
+        return Disponibilidad;
+    }
+
+    public void setDisponibilidad(int disponibilidad) {
+        Disponibilidad = disponibilidad;
+    }
+
     // Constructor
     public Bono(String matricula, int duracion, Parking parking) {
         this.matricula = matricula;
@@ -52,6 +60,7 @@ public class Bono {
         nuevaReserva.put("parking", nombreParking);
         nuevaReserva.put("duracion", duracion);
         nuevaReserva.put("matricula", matricula);
+        nuevaReserva.put("disponibilidad",1);
 
         usuarioRef.collection("Reservas").add(nuevaReserva)
                 .addOnSuccessListener(documentReference -> {
