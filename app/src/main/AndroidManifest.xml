@@ -8,7 +8,7 @@
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/Theme.ProyectoIoT"
         tools:targetApi="31">
@@ -20,7 +20,8 @@
             android:name=".presentation.LoginActivity"
             android:exported="true"
             android:label="@string/app_name"
-            android:theme="@style/Theme.ProyectoIoT.NoActionBar">
+            android:theme="@style/Theme.ProyectoIoT.NoActionBar"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -31,15 +32,18 @@
 
         <activity
             android:name=".presentation.MainActivity"
-            android:theme="@style/Theme.ProyectoIoT.NoActionBar">
+            android:theme="@style/Theme.ProyectoIoT.NoActionBar"
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".presentation.PerfilActivity"
-            android:theme="@style/Theme.ProyectoIoT.NoActionBar">
+            android:theme="@style/Theme.ProyectoIoT.NoActionBar"
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".presentation.RegisterActivity"
-            android:theme="@style/Theme.ProyectoIoT.NoActionBar">
+            android:theme="@style/Theme.ProyectoIoT.NoActionBar"
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".presentation.VistaParkingActivity"
@@ -50,7 +54,8 @@
 
         <activity
             android:name=".presentation.FaqActivity"
-            android:theme="@style/Theme.ProyectoIoT.NoActionBar">
+            android:theme="@style/Theme.ProyectoIoT.NoActionBar"
+            android:screenOrientation="portrait">
         </activity>
 
     </application>

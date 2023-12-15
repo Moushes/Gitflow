@@ -11,4 +11,5 @@
     <style name="Theme.ProyectoIoT.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.ProyectoIoT.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
 </resources>
