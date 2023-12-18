@@ -49,7 +49,7 @@
                 app:srcCompat="@drawable/ic_menu_parking_blanco" />
 
             <TextView
-                android:id="@+id/nombreTextView"
+                android:id="@+id/nombreParkingBono"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -78,7 +78,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/plazasTextView"
                 app:layout_constraintStart_toEndOf="@+id/imagenParking"
-                app:layout_constraintTop_toBottomOf="@+id/nombreTextView"
+                app:layout_constraintTop_toBottomOf="@+id/nombreParkingBono"
                 app:layout_constraintVertical_bias="0.5" />
 
             <TextView

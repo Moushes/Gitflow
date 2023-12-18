@@ -1,7 +1,6 @@
 package com.example.proyectoiot.model;
 
 import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +13,6 @@ import com.example.proyectoiot.R;
 import com.example.proyectoiot.presentation.VistaParkingActivity;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
-import android.content.Context;
 
 
 public class ParkingAdapter extends FirestoreRecyclerAdapter<Parking, ParkingAdapter.ParkingViewHolder> {
@@ -44,7 +42,7 @@ public class ParkingAdapter extends FirestoreRecyclerAdapter<Parking, ParkingAda
 
         public ParkingViewHolder(@NonNull View itemView) {
             super(itemView);
-            nombreTextView = itemView.findViewById(R.id.nombreTextView);
+            nombreTextView = itemView.findViewById(R.id.nombreParkingBono);
             localizacionTextView = itemView.findViewById(R.id.localizacionTextView);
             plazasTextView = itemView.findViewById(R.id.plazasTextView);
             // Agregar un ClickListener al ViewHolder
