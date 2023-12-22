@@ -15,3 +15,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "ProyectoIoT"
 include(":app")
+include(":comun")
