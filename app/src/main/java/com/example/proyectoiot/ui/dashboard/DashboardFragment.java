@@ -39,6 +39,8 @@ public class DashboardFragment extends Fragment {
         binding = FragmentDashboardBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
+        /*
+
         // Inicializar el RecyclerView
         recyclerView = root.findViewById(R.id.recyclerView);
 
@@ -53,10 +55,16 @@ public class DashboardFragment extends Fragment {
         adapter = new ParkingAdapter(options);
         recyclerView.setAdapter(adapter);
 
+
+         */
+
         return root;
+
+
+
     }
 
-    @Override
+    /*@Override
     public void onStart() {
         super.onStart();
         // Iniciar la escucha del adaptador cuando el fragmento está visible
@@ -73,7 +81,7 @@ public class DashboardFragment extends Fragment {
     public void onResume() {
         super.onResume();
         adapter.notifyDataSetChanged();
-    }
+    }*/
 
     @Override
     public void onDestroyView() {
