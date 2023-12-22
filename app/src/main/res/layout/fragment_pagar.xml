@@ -106,8 +106,8 @@
             android:text="Cancelar"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/button2"
-            app:layout_constraintTop_toTopOf="@+id/button2" />
+            app:layout_constraintStart_toEndOf="@+id/continuar"
+            app:layout_constraintTop_toTopOf="@+id/continuar" />
 
         <EditText
             android:id="@+id/editText4"
@@ -119,7 +119,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textView22" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/continuar"
             style="@style/BotonVerdePersonalizado"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
