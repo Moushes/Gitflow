@@ -9,70 +9,21 @@
     <View
         android:id="@+id/view2"
         android:layout_width="wrap_content"
-        android:layout_height="704dp"
+        android:layout_height="695dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="28dp"
-        android:layout_marginTop="27dp"
+        android:layout_marginTop="36dp"
         android:layout_marginEnd="28dp"
         android:layout_marginBottom="0dp"
         android:background="@drawable/fondo_redondeado_blanco" />
 
-    <Button
-        android:id="@+id/botonMensual"
-        android:layout_width="275dp"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/BotonAnual"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="67dp"
-        android:layout_marginEnd="69dp"
-        android:layout_marginBottom="150dp"
-        android:text="Comprar" />
-
-    <Button
-        android:id="@+id/BotonAnual"
-        android:layout_width="275dp"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/botonSemanal"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="67dp"
-        android:layout_marginEnd="69dp"
-        android:layout_marginBottom="150dp"
-        android:text="Comprar" />
-
-    <Button
-        android:id="@+id/botonSemanal"
-        android:layout_width="275dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="67dp"
-        android:layout_marginEnd="69dp"
-        android:layout_marginBottom="108dp"
-        android:text="Comprar" />
-
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="wrap_content"
-        android:layout_height="133dp"
-        android:layout_above="@+id/botonSemanal"
-        android:layout_alignStart="@+id/botonSemanal"
-        android:layout_alignEnd="@+id/botonSemanal"
-        android:layout_marginStart="1dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginBottom="-8dp"
-
-        tools:srcCompat="@tools:sample/avatars" />
-
     <ImageView
         android:id="@+id/imageView6"
         android:layout_width="wrap_content"
-        android:layout_height="133dp"
+        android:layout_height="120dp"
         android:layout_above="@+id/BotonAnual"
         android:layout_alignStart="@+id/botonSemanal"
         android:layout_alignEnd="@+id/botonSemanal"
@@ -82,16 +33,66 @@
         android:background="@drawable/banner_1_any"
         tools:srcCompat="@tools:sample/avatars" />
 
+    <Button
+        android:id="@+id/botonSemanal"
+        android:layout_width="275dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="65dp"
+        android:layout_marginEnd="71dp"
+        android:layout_marginBottom="64dp"
+        android:text="Comprar" />
+
+    <Button
+        android:id="@+id/BotonAnual"
+        android:layout_width="275dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/botonSemanal"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="65dp"
+        android:layout_marginEnd="71dp"
+        android:layout_marginBottom="150dp"
+        android:text="Comprar" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="wrap_content"
+        android:layout_height="120dp"
+        android:layout_above="@+id/botonSemanal"
+        android:layout_alignStart="@+id/botonSemanal"
+        android:layout_alignEnd="@+id/botonSemanal"
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="-8dp"
+        android:background="@drawable/banner_1_semana"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <Button
+        android:id="@+id/botonMensual"
+        android:layout_width="275dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/BotonAnual"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="65dp"
+        android:layout_marginEnd="71dp"
+        android:layout_marginBottom="150dp"
+        android:text="Comprar" />
+
     <ImageView
         android:id="@+id/imageView7"
         android:layout_width="wrap_content"
-        android:layout_height="133dp"
+        android:layout_height="120dp"
         android:layout_above="@+id/botonMensual"
         android:layout_alignStart="@+id/botonSemanal"
         android:layout_alignEnd="@+id/botonSemanal"
         android:layout_marginStart="1dp"
         android:layout_marginEnd="1dp"
         android:layout_marginBottom="-8dp"
+        android:background="@drawable/banner_1_mes"
         tools:srcCompat="@tools:sample/avatars" />
 
 </RelativeLayout>

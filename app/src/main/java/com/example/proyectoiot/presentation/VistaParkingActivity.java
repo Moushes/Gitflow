@@ -104,15 +104,13 @@ public class VistaParkingActivity extends AppCompatActivity
 
     private void onSuccess(String topic, MqttMessage message) {
         if (message.toString().equals("1")) {
-            int currentValue = Integer.parseInt(plazasocupadas.getText().toString());
-            runOnUiThread(() -> plazasocupadas.setText(String.valueOf(currentValue + 1)));
+
             int currentValue1 = Integer.parseInt(plazaslibres.getText().toString());
             runOnUiThread(() -> plazaslibres.setText(String.valueOf(currentValue1 - 1)));
         }
 
         if (message.toString().equals("0")) {
-            int currentValue = Integer.parseInt(plazasocupadas.getText().toString());
-            runOnUiThread(() -> plazasocupadas.setText(String.valueOf(currentValue - 1)));
+
             int currentValue1 = Integer.parseInt(plazaslibres.getText().toString());
             runOnUiThread(() -> plazaslibres.setText(String.valueOf(currentValue1 + 1)));
         }

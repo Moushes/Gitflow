@@ -24,7 +24,7 @@
         tools:layout="@layout/fragment_notifications" />
     <fragment
         android:id="@+id/navigation_mis_bonos"
-        android:name="com.example.proyectoiot.ui.notifications.NotificationsFragment"
+        android:name="com.example.proyectoiot.ui.misbonos.MisBonosFragment"
         android:label="@string/title_misbonos"
         tools:layout="@layout/fragment_misbonos"/>
 </navigation>
