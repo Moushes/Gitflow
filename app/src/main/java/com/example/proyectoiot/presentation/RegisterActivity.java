@@ -60,7 +60,7 @@ public class RegisterActivity extends AppCompatActivity {
         dialogo = new ProgressDialog(this);
         dialogo.setTitle("Verificando usuario");
         dialogo.setMessage("Por favor espere...");
-        verificaSiUsuarioValidado();
+        //verificaSiUsuarioValidado();
         //Google
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(
                 GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -73,7 +73,6 @@ public class RegisterActivity extends AppCompatActivity {
 
     private void verificaSiUsuarioValidado() {
         if (auth.getCurrentUser() != null) {
-            agregarUsuarioAFirestore(new Usuario(nombre,correo,matricula));
             Intent i = new Intent(this, LoginActivity.class);
             i.putExtra("Correo", correo);
             i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP
@@ -134,7 +133,19 @@ public class RegisterActivity extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
-                                enviarEmailVerificacion();
+                                // Create a Usuario object
+                                Usuario usuario = new Usuario(nombre, correo, matricula);
+
+                                // Add the user to Firestore
+                                agregarUsuarioAFirestore(usuario);
+
+                                // Check if user creation is successful before sending email verification
+                                if (task.getResult() != null && task.getResult().getUser() != null) {
+                                    enviarEmailVerificacion(task.getResult().getUser());
+                                } else {
+                                    dialogo.dismiss();
+                                    mensaje("Error al crear el usuario");
+                                }
                             } else {
                                 dialogo.dismiss();
                                 mensaje(task.getException().getLocalizedMessage());
@@ -144,29 +155,30 @@ public class RegisterActivity extends AppCompatActivity {
         }
     }
 
-    private void enviarEmailVerificacion() {
-        FirebaseUser user = auth.getCurrentUser();
-        if (user != null) {
-            user.sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
-                @Override
-                public void onComplete(@NonNull Task<Void> task) {
-                    dialogo.dismiss();
-                    if (task.isSuccessful()) {
-                        mensaje("Registro exitoso. Se ha enviado un correo de verificación a " + user.getEmail());
-                        verificaSiUsuarioValidado();
-                    } else {
-                        mensaje("No se pudo enviar el correo de verificación. " + task.getException().getLocalizedMessage());
+    private void enviarEmailVerificacion(FirebaseUser user) {
+        user.sendEmailVerification()
+                .addOnCompleteListener(this, new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        dialogo.dismiss();
+                        if (task.isSuccessful()) {
+                            mensaje("Se ha enviado un correo de verificación a " + correo);
+                            verificaSiUsuarioValidado();
+                        } else {
+                            mensaje("Error al enviar el correo de verificación");
+                        }
                     }
-                }
-            });
-        }
+                });
     }
+
 
     public void agregarUsuarioAFirestore(Usuario usuario) {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        Log.d("FireStore", user.getUid());
         usuario.setUid(user.getUid());
         db.collection("Usuarios").document(user.getUid()).set(usuario);
+        Log.d("Usuario", "agregarUsuarioAFirestore: ");
 
     }
 

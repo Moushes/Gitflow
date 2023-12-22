@@ -7,6 +7,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.proyectoiot.R;
 import com.example.proyectoiot.model.Parking;
@@ -47,7 +48,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
         setSupportActionBar(binding.toolbar);
         FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
-
+        if (currentUser == null) {
+            // Mostrar un Toast indicando que ha fallado al cargar el usuario
+            Toast.makeText(this, "Fallo al cargar el usuario", Toast.LENGTH_SHORT).show();
+        }
         BottomNavigationView navView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top-level destinations.
@@ -65,6 +69,10 @@ public class MainActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
+    public void buscarParking(View view) {
+
+    }
+
 
     @Override
     public boolean onSupportNavigateUp() {
