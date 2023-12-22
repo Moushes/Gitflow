@@ -50,6 +50,7 @@
             android:theme="@style/Theme.ProyectoIoT.NoActionBar"
             android:screenOrientation="portrait">
         </activity>
+        <activity android:name=".presentation.BuscarParkingActivity"></activity>
 
 
         <activity

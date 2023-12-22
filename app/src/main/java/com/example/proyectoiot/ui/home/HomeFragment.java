@@ -14,6 +14,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.proyectoiot.R;
 import com.example.proyectoiot.databinding.FragmentHomeBinding;
+import com.example.proyectoiot.presentation.BuscarParkingActivity;
 import com.example.proyectoiot.presentation.FaqActivity;
 import com.example.proyectoiot.presentation.MainActivity;
 import com.example.proyectoiot.ui.home.HomeViewModel;
@@ -42,6 +43,7 @@ public class HomeFragment extends Fragment {
         // Obtener una referencia al botón flotante
         //FloatingActionButton fabNotification = root.findViewById(R.id.fab_notification);
         Button faqbuttonme = root.findViewById(R.id.boton_faq);
+        Button buscarParking=root.findViewById(R.id.boton_Buscar_Parking);
 
         // Agregar un OnClickListener al botón flotante
         //fabNotification.setOnClickListener(new View.OnClickListener() {
@@ -56,6 +58,14 @@ public class HomeFragment extends Fragment {
             public void onClick(View view) {
                 Intent intent = new Intent(requireContext(),FaqActivity.class);
                 view.getContext().startActivity(intent);
+
+            }
+        });
+        buscarParking.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(requireContext(),BuscarParkingActivity.class);
+                startActivity(intent);
 
             }
         });
@@ -83,10 +93,6 @@ public class HomeFragment extends Fragment {
                         // El documento no existe
                         usuario.setText("!Hola¡");
                     }
-                })
-                .addOnFailureListener(e -> {
-                    // Error al obtener el documento
-                    usuario.setText("¡El documento fallo en cargar!");
                 });
     }
 
