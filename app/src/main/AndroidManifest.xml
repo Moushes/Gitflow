@@ -59,6 +59,19 @@
             android:screenOrientation="portrait">
         </activity>
 
+
+        <activity
+            android:name=".presentation.PagarActivity"
+            android:theme="@style/Theme.AppCompat.Light.Dialog"/>
+
+
+        <activity
+            android:name=".presentation.ElegirParkingActivity"
+            android:theme="@style/Theme.AppCompat.Light.Dialog"/>
+
+
+
+
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />

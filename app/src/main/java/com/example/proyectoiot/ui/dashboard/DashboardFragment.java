@@ -39,6 +39,8 @@ public class DashboardFragment extends Fragment {
         binding = FragmentDashboardBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
+        /*
+
         // Inicializar el RecyclerView
         //recyclerView = root.findViewById(R.id.recyclerView);
 
@@ -53,7 +55,13 @@ public class DashboardFragment extends Fragment {
         //adapter = new ParkingAdapter(options);
         //recyclerView.setAdapter(adapter);
 
+
+         */
+
         return root;
+
+
+
     }
     @Override
     public void onDestroyView() {
