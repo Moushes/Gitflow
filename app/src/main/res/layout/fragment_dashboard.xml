@@ -66,7 +66,7 @@
         android:layout_marginStart="1dp"
         android:layout_marginEnd="1dp"
         android:layout_marginBottom="-8dp"
-        android:background="@drawable/banner_1_semana"
+
         tools:srcCompat="@tools:sample/avatars" />
 
     <ImageView
@@ -92,7 +92,6 @@
         android:layout_marginStart="1dp"
         android:layout_marginEnd="1dp"
         android:layout_marginBottom="-8dp"
-        android:background="@drawable/banner_1_mes"
         tools:srcCompat="@tools:sample/avatars" />
 
 </RelativeLayout>

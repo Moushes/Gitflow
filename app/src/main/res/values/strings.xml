@@ -13,8 +13,9 @@
     <string name="menu_parking">Parking</string>
     <string name="menu_cerrar_sesion">Cerrar sesión</string>
     <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Usuario</string>
+    <string name="title_dashboard">Bono</string>
+    <string name="title_notifications">Perfil</string>
+    <string name="title_misbonos">Mis bonos</string>
     <string name="twitter_consumer_key"
         translatable="false">Hoqav02Z04fQ9I2VCfvcs1uyi</string>
     <string name="twitter_consumer_secret" translatable=
