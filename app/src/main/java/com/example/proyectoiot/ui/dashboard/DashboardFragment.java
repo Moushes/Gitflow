@@ -44,15 +44,15 @@ public class DashboardFragment extends Fragment {
         /*
 
         // Inicializar el RecyclerView
-        recyclerView = root.findViewById(R.id.recyclerView);
+        //recyclerView = root.findViewById(R.id.recyclerView);
 
         // Configurar el LayoutManager (puedes usar LinearLayoutManager, GridLayoutManager, etc.)
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        //recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         // Configurar el adaptador
-        FirestoreRecyclerOptions<Parking> options = new FirestoreRecyclerOptions.Builder<Parking>()
-                .setQuery(FirebaseFirestore.getInstance().collection("Parkings"), Parking.class)
-                .build();
+        //FirestoreRecyclerOptions<Parking> options = new FirestoreRecyclerOptions.Builder<Parking>()
+                //.setQuery(FirebaseFirestore.getInstance().collection("Parkings"), Parking.class)
+                //.build();
 
         adapter = new ParkingAdapter(options);
         recyclerView.setAdapter(adapter);
@@ -90,30 +90,12 @@ public class DashboardFragment extends Fragment {
 
     }
 
-    private void openElegirParkingActivity(int days) {
-        Intent intent = new Intent(getActivity(), ElegirParkingActivity.class);
-        intent.putExtra("days", days);
-        startActivity(intent);
-    }
-
     /*@Override
     public void onStart() {
         super.onStart();
         // Iniciar la escucha del adaptador cuando el fragmento está visible
         adapter.startListening();
     }
-
-    @Override
-    public void onStop() {
-        super.onStop();
-        // Detener la escucha del adaptador cuando el fragmento no está visible
-        adapter.stopListening();
-    }
-    @Override
-    public void onResume() {
-        super.onResume();
-        adapter.notifyDataSetChanged();
-    }*/
 
     @Override
     public void onDestroyView() {
