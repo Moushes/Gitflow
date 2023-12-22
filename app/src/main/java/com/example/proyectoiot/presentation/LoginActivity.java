@@ -151,6 +151,13 @@ public class LoginActivity extends AppCompatActivity {
     private void mensaje(String mensaje) {
         Snackbar.make(contenedor, mensaje, Snackbar.LENGTH_LONG).show();
     }
+    public void enviar(View view){
+        // Crear un Intent para la actividad principal (MainActivity)
+        Intent intent = new Intent(this, MainActivity.class);
+
+        // Iniciar la actividad principal
+        startActivity(intent);
+    }
 
     private boolean verificaCampos() {
         correo = etCorreo.getText().toString();
