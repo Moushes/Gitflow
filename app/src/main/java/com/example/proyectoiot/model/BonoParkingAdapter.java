@@ -1,6 +1,7 @@
 package com.example.proyectoiot.model;
 
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,8 +18,10 @@ import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 
 public class BonoParkingAdapter extends FirestoreRecyclerAdapter<Parking, BonoParkingAdapter.ParkingViewHolder> {
 
-    public BonoParkingAdapter(@NonNull FirestoreRecyclerOptions<Parking> options) {
+    private int limite; // Campo para almacenar el valor de días
+    public BonoParkingAdapter(@NonNull FirestoreRecyclerOptions<Parking> options,Integer dias) {
         super(options);
+        this.limite = (dias != null) ? dias : 0; // Asigna el valor de dias o 0 si es nulo
     }
 
     @Override
@@ -33,8 +36,9 @@ public class BonoParkingAdapter extends FirestoreRecyclerAdapter<Parking, BonoPa
         return new ParkingViewHolder(view);
     }
 
-    static class ParkingViewHolder extends RecyclerView.ViewHolder {
+    class ParkingViewHolder extends RecyclerView.ViewHolder {
         private final TextView nombreTextView;
+
 
         public ParkingViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -44,7 +48,10 @@ public class BonoParkingAdapter extends FirestoreRecyclerAdapter<Parking, BonoPa
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(view.getContext(), PagarActivity.class);
+                    Log.d("Prueba", nombreTextView.getText().toString());
+                    Log.d("Prueba", String.valueOf(limite));
                     intent.putExtra("Nombre", nombreTextView.getText().toString());
+                    intent.putExtra("Dias", limite);
                     view.getContext().startActivity(intent);
                 }
             });

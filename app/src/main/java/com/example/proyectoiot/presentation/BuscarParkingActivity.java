@@ -1,5 +1,6 @@
 package com.example.proyectoiot.presentation;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -23,6 +24,7 @@ public class BuscarParkingActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_buscarparking);
+
 
         // Inicializar el RecyclerView
         recyclerView = findViewById(R.id.recyclerView);

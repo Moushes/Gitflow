@@ -122,7 +122,7 @@ public class NotificationsFragment extends Fragment {
         actualizaciones.put("nombre", nuevoNombre);
         actualizaciones.put("correo", nuevoCorreo);
         actualizaciones.put("matricula", nuevaMatricula);
-        user.updatePassword(nuevaContraseña);
+        //user.updatePassword(nuevaContraseña);
 
         // Actualiza el documento en Firestore
         usuarioRef.update(actualizaciones)

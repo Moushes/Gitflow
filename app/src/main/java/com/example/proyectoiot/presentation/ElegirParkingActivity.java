@@ -1,5 +1,6 @@
 package com.example.proyectoiot.presentation;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,10 +19,13 @@ public class ElegirParkingActivity extends AppCompatActivity {
 
     private BonoParkingAdapter adapter;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ventana_emergente_bono);
+        Intent intent = getIntent();
+        int dias = intent.getIntExtra("days", 0);
 
         // Configura la referencia a la colección de Firestore
         FirebaseFirestore firestore = FirebaseFirestore.getInstance();
@@ -36,7 +40,7 @@ public class ElegirParkingActivity extends AppCompatActivity {
                 .build();
 
         // Crea el adaptador con las opciones
-        adapter = new BonoParkingAdapter(options);
+        adapter = new BonoParkingAdapter(options,dias);
 
         // Configura el RecyclerView
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
