@@ -21,6 +21,7 @@ import com.example.proyectoiot.model.Parking;
 import com.example.proyectoiot.model.ParkingAdapter;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
@@ -48,21 +49,37 @@ public class PagarActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_pagar);
+
         // Obtén la instancia de FirebaseAuth
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
         // Obtiene el usuario actualmente autenticado
         FirebaseUser user = mAuth.getCurrentUser();
         // El usuario está autenticado, puedes obtener su ID
         String idUsuario = user.getUid();
-
+        DocumentReference usuarioRef = FirebaseFirestore.getInstance().collection("Usuarios").document(idUsuario);
+        usuarioRef.get()
+                .addOnSuccessListener(documentSnapshot -> {
+                    if (documentSnapshot.exists()) {
+                        // El documento existe, obten el valor del campo "Nombre"
+                        matricula = documentSnapshot.getString("matricula");
+                    } else {
+                    }
+                })
+                .addOnFailureListener(e -> {
+                    // Error al obtener el documento
+                });
         Button privado = findViewById(R.id.continuar);
+
 
         privado.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 mqtt.publicar("privada", "1");
-                bono.agregarReserva(idUsuario, "Cala", 30, matricula);
+                Log.d("Reserva", idUsuario);
+                Log.d("Reserva", matricula);
+                Bono bono = new Bono(matricula, 30,"Cala" );
+                bono.agregarReserva(idUsuario);
 
             }
         });

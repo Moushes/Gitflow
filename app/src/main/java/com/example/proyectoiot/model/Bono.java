@@ -9,7 +9,7 @@ import java.util.Map;
 public class Bono {
     private String matricula;
     private int duracion; // asumiendo que la duración es un entero, ajusta según tus necesidades
-    private Parking parking;
+    private String parking;
 
     private long fechaInicio;
 
@@ -24,11 +24,10 @@ public class Bono {
     }
 
     // Constructor
-    public Bono(String matricula, int duracion, Parking parking, long fechaInicio) {
+    public Bono(String matricula, int duracion,String parking) {
         this.matricula = matricula;
         this.duracion = duracion;
         this.parking = parking;
-        this.fechaInicio = fechaInicio;
     }
 
     // Métodos getters y setters (puedes generarlos automáticamente en tu IDE)
@@ -48,11 +47,11 @@ public class Bono {
         this.duracion = duracion;
     }
 
-    public Parking getParking() {
+    public String getParking() {
         return parking;
     }
 
-    public void setParking(Parking parking) {
+    public void setParking(String parking) {
         this.parking = parking;
     }
 
@@ -64,20 +63,20 @@ public class Bono {
         this.fechaInicio = fechaInicio;
     }
 
-    public void agregarReserva(String idUsuario, String nombreParking, int duracion, String matricula) {
+    public void agregarReserva(String idUsuario) {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
-        DocumentReference usuarioRef = db.collection("Usuarios").document(idUsuario);
 
         long fechaInicioReserva = System.currentTimeMillis(); // Obtiene la marca de tiempo actual
 
         Map<String, Object> nuevaReserva = new HashMap<>();
-        nuevaReserva.put("parking", nombreParking);
+        nuevaReserva.put("idUsuario", idUsuario);
+        nuevaReserva.put("parking", parking); // Ajusta según la estructura de la clase Parking
         nuevaReserva.put("duracion", duracion);
         nuevaReserva.put("matricula", matricula);
         nuevaReserva.put("disponibilidad", 1);
         nuevaReserva.put("fecha", fechaInicioReserva); // Agrega la fecha de inicio
 
-        usuarioRef.collection("Reservas").add(nuevaReserva)
+        db.collection("Reservas").add(nuevaReserva)
                 .addOnSuccessListener(documentReference -> {
                     System.out.println("Reserva añadida con ID: " + documentReference.getId());
                 })
@@ -85,6 +84,8 @@ public class Bono {
                     System.err.println("Error al añadir la reserva: " + e.getMessage());
                 });
     }
+
+
 
 }
 
