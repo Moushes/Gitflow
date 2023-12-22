@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -19,6 +20,7 @@ import com.example.proyectoiot.databinding.FragmentDashboardBinding;
 import com.example.proyectoiot.model.Parking;
 import com.example.proyectoiot.model.ParkingAdapter;
 import com.example.proyectoiot.model.Usuario;
+import com.example.proyectoiot.presentation.ElegirParkingActivity;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -54,14 +56,44 @@ public class DashboardFragment extends Fragment {
 
         adapter = new ParkingAdapter(options);
         recyclerView.setAdapter(adapter);
-
-
          */
+
+        Button botonSemanal = root.findViewById(R.id.botonSemanal);
+        Button botonAnual = root.findViewById(R.id.BotonAnual);
+        Button botonMensual = root.findViewById(R.id.botonMensual);
+
+        botonSemanal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openElegirParkingActivity(7); // 7 days for weekly
+            }
+        });
+
+        botonAnual.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openElegirParkingActivity(365); // 365 days for yearly
+            }
+        });
+
+        botonMensual.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openElegirParkingActivity(30); // 30 days for monthly
+            }
+        });
+
 
         return root;
 
 
 
+    }
+
+    private void openElegirParkingActivity(int days) {
+        Intent intent = new Intent(getActivity(), ElegirParkingActivity.class);
+        intent.putExtra("days", days);
+        startActivity(intent);
     }
 
     /*@Override
