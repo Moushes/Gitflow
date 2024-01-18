@@ -5,6 +5,5 @@
             <solid android:color="@color/grey"/>
         </shape>
     </item>
-    <item android:drawable="@drawable/ic_menu_parking"
-        />
+    <item android:drawable="@drawable/ic_notifications_blanco" />
 </layer-list>
