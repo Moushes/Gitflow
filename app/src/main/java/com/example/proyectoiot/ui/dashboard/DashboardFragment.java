@@ -86,12 +86,13 @@ public class DashboardFragment extends Fragment {
 
 
     }
+
     private void openElegirParkingActivity(int days) {
         Intent intent = new Intent(getActivity(), ElegirParkingActivity.class);
         intent.putExtra("days", days);
         startActivity(intent);
     }
-
+}
     /*@Override
     public void onStart() {
         super.onStart();
@@ -103,5 +104,5 @@ public class DashboardFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
-    }*/
-}
+    }
+}*/
