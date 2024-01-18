@@ -40,21 +40,21 @@
     tools:context=".ui.home.HomeFragment" >
 
     <Button
-        android:id="@+id/boton_Notificaciones"
+        android:id="@+id/boton_Historial"
         style="@style/BotonGrisPersonalizado"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:width="125dp"
         android:height="125dp"
-        android:text="Notificaciones"
-        android:textSize="12sp"
+        android:onClick="escuchador_notis"
+        android:text="Historial"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.061"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.468"
-        android:onClick="escuchador_notis"/>
+        app:layout_constraintVertical_bias="0.468" />
 
     <Button
         android:id="@+id/boton_faq"
@@ -64,6 +64,7 @@
         android:height="121dp"
         android:background="@drawable/boton_redondeado_333333"
         android:text="FAQ"
+        android:textColor="@color/white"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -73,19 +74,21 @@
         app:layout_constraintVertical_bias="0.831" />
 
     <Button
-        android:id="@+id/boton_Historial"
+        android:id="@+id/boton_AcercaDe"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:width="135dp"
         android:height="135dp"
         android:background="@drawable/boton_redondeado_333333"
-        android:text="Historial"
+        android:text="Acerca de"
+        android:textColor="@color/white"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.778"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.686"/>
+        app:layout_constraintVertical_bias="0.686" />
 
     <Button
         android:id="@+id/boton_Buscar_Parking"
@@ -95,7 +98,8 @@
         android:width="140dp"
         android:height="140dp"
         android:background="@drawable/boton_redondeado_333333"
-        android:text="Buscar Parking"
+        android:text=" Buscar parking"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.881"
