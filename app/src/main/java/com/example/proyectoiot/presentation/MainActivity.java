@@ -109,7 +109,17 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void onSalidaClick(View view) {
-        String s = mqtt.publicar("test", "Hola desde Android");
+        String s = mqtt.publicar("entrada", "1");
+        //Log.d(TAG, s);
+    }
+
+    public void onEntradaClick(View view) {
+        String s = mqtt.publicar("salida", "1");
+        //Log.d(TAG, s);
+    }
+
+    public void onLuzClick(View view) {
+        String s = mqtt.publicar("luz", "1");
         //Log.d(TAG, s);
     }
 
