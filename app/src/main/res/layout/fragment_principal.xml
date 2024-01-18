@@ -14,15 +14,16 @@
         android:layout_height="150dp"
         android:width="125dp"
         android:height="125dp"
+        android:onClick="escuchador_notis"
         android:text="Notificaciones"
+        android:textColor="@color/white"
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.061"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.468"
-        android:onClick="escuchador_notis"/>
+        app:layout_constraintVertical_bias="0.468" />
 
     <Button
         android:id="@+id/boton_faq"
@@ -32,6 +33,7 @@
         android:height="121dp"
         android:background="@drawable/boton_redondeado_333333"
         android:text="FAQ"
+        android:textColor="@color/white"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -48,12 +50,13 @@
         android:height="135dp"
         android:background="@drawable/boton_redondeado_333333"
         android:text="Historial"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.778"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.686"/>
+        app:layout_constraintVertical_bias="0.686" />
 
     <Button
         android:id="@+id/boton_Buscar_Parking"
@@ -63,13 +66,13 @@
         android:height="140dp"
         android:background="@drawable/boton_redondeado_333333"
         android:text="Buscar Parking"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.881"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.358"
-        />
+        app:layout_constraintVertical_bias="0.358" />
 
     <TextView
         android:id="@+id/textView6"
