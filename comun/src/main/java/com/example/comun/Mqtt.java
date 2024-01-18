@@ -1,9 +1,7 @@
 package com.example.comun;
 
-import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
 import org.eclipse.paho.client.mqttv3.MqttCallback;
 import org.eclipse.paho.client.mqttv3.MqttClient;
-import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
 import org.eclipse.paho.client.mqttv3.MqttException;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
 import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
@@ -16,7 +14,6 @@ public class Mqtt {
     public static final String clientId = "Test1313"; // Reemplaza
 
     private MqttClient client;
-    private int texto = 0; // Nueva variable para almacenar el valor
 
     public Mqtt() {
         try {
@@ -29,15 +26,11 @@ public class Mqtt {
 
     public String publicar(String topic, String mensageStr) {
         try {
-            if (topic.equals("publica")) {
-                // Si el topic es "publica", actualiza la variable texto
-                texto = Integer.parseInt(mensageStr);
-            }
             MqttMessage message = new MqttMessage(mensageStr.getBytes());
             message.setQos(qos);
             message.setRetained(false);
             client.publish(topicRoot + topic, message);
-            return "Publicando mensaje: " + topic + "->" + mensageStr;
+            return "Publicando mensaje: " + topic+ "->"+mensageStr;
         } catch (MqttException e) {
             return "Error al publicar en MQTT." + e;
         }
@@ -60,9 +53,5 @@ public class Mqtt {
         } catch (MqttException e) {
             return "Error al suscribir." + e;
         }
-    }
-
-    public int getValorTexto() {
-        return texto;
     }
 }

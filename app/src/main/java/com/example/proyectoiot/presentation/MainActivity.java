@@ -71,31 +71,9 @@ public class MainActivity extends AppCompatActivity {
 
 
         mqtt = new Mqtt();
-        Button entradaButton = findViewById(R.id.Entrada);
-        Button salidaButton = findViewById(R.id.Salida);
-        Button luzButton = findViewById(R.id.Luz);
 
         //cambiarfecha();
-        entradaButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onEntradaClick();
-            }
-        });
 
-        salidaButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onSalidaClick();
-            }
-        });
-
-        luzButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onLuzClick();
-            }
-        });
         
     }
 
@@ -130,35 +108,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    // Método para manejar el clic en el botón de Entrada
-    public void onEntradaClick() {
-        String topic = "entrada";
-        String message = "1";
-        mqtt.publicar(topic, message);
-        Toast.makeText(requireContext(), "Enviando mensaje a " + topic, Toast.LENGTH_SHORT).show();
-    }
-
-    // Método para manejar el clic en el botón de Salida
-    public void onSalidaClick() {
-        String topic = "salida";
-        String message = "1";
-        mqtt.publicar(topic, message);
-        Toast.makeText(requireContext(), "Enviando mensaje a " + topic, Toast.LENGTH_SHORT).show();
-    }
-
-    // Método para manejar el clic en el botón de Luz
-    public void onLuzClick() {
-        String topic = "luz";
-        String message = "1";
-        mqtt.publicar(topic, message);
-        Toast.makeText(requireContext(), "Enviando mensaje a " + topic, Toast.LENGTH_SHORT).show();
+    public void onSalidaClick(View view) {
+        String s = mqtt.publicar("test", "Hola desde Android");
+        //Log.d(TAG, s);
     }
 
     @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        // Desconecta el cliente MQTT al destruir la vista del fragmento
-        mqtt.desconectar();
+    public void onDestroy() {
+        String s = mqtt.desconectar();
+        //Log.d(TAG, s);
+        super.onDestroy();
     }
 
 }
