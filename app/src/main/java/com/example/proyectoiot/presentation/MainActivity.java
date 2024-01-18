@@ -5,7 +5,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Menu;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,12 +35,17 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import com.example.comun.Mqtt;
+
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
     private FirebaseAuth auth;
     private TextView bienvenida;
+
+    private Mqtt mqtt;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +70,33 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(binding.navView, navController);
 
 
+        mqtt = new Mqtt();
+        Button entradaButton = findViewById(R.id.Entrada);
+        Button salidaButton = findViewById(R.id.Salida);
+        Button luzButton = findViewById(R.id.Luz);
+
+        //cambiarfecha();
+        entradaButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onEntradaClick();
+            }
+        });
+
+        salidaButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onSalidaClick();
+            }
+        });
+
+        luzButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onLuzClick();
+            }
+        });
+        
     }
 
     @Override
@@ -93,6 +127,38 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
         finish(); // Cierra la actividad actual
+    }
+
+
+    // Método para manejar el clic en el botón de Entrada
+    public void onEntradaClick() {
+        String topic = "entrada";
+        String message = "1";
+        mqtt.publicar(topic, message);
+        Toast.makeText(requireContext(), "Enviando mensaje a " + topic, Toast.LENGTH_SHORT).show();
+    }
+
+    // Método para manejar el clic en el botón de Salida
+    public void onSalidaClick() {
+        String topic = "salida";
+        String message = "1";
+        mqtt.publicar(topic, message);
+        Toast.makeText(requireContext(), "Enviando mensaje a " + topic, Toast.LENGTH_SHORT).show();
+    }
+
+    // Método para manejar el clic en el botón de Luz
+    public void onLuzClick() {
+        String topic = "luz";
+        String message = "1";
+        mqtt.publicar(topic, message);
+        Toast.makeText(requireContext(), "Enviando mensaje a " + topic, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        // Desconecta el cliente MQTT al destruir la vista del fragmento
+        mqtt.desconectar();
     }
 
 }
