@@ -68,7 +68,9 @@
 
         <activity
             android:name=".presentation.HistorialActivity"
-            android:theme="@style/Theme.AppCompat.Light.Dialog"/>
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.ProyectoIoT.NoActionBar"
+            />
 
 
         <activity
