@@ -89,6 +89,15 @@ public class PagarActivity extends AppCompatActivity {
             }
         });
 
+        Button cancelar = findViewById(R.id.cancelarPago);
+        cancelar.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                finish();
+            }
+        });
+
+
         MqttCallback mqttCallback = new MqttCallback() {
             @Override
             public void connectionLost(Throwable cause) {
