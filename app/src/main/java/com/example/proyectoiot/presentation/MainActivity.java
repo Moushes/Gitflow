@@ -109,12 +109,12 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void onSalidaClick(View view) {
-        String s = mqtt.publicar("entrada", "1");
+        String s = mqtt.publicar("salida", "1");
         //Log.d(TAG, s);
     }
 
     public void onEntradaClick(View view) {
-        String s = mqtt.publicar("salida", "1");
+        String s = mqtt.publicar("barrera", "1");
         //Log.d(TAG, s);
     }
 
