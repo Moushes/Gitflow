@@ -26,26 +26,21 @@ public class BonoCompradosAdapter extends FirestoreRecyclerAdapter<Bono, BonoCom
     @NonNull
     @Override
     public BonoViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_bono_comprado, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_parking_bono, parent, false);
         return new BonoViewHolder(view);
     }
 
     class BonoViewHolder extends RecyclerView.ViewHolder {
-        private final TextView matriculaTextView;
-        private final TextView duracionTextView;
-        private final TextView parkingTextView;
+        private final TextView nombreTextView;
 
         public BonoViewHolder(@NonNull View itemView) {
             super(itemView);
-            matriculaTextView = itemView.findViewById(R.id.matriculaTextView);
-            duracionTextView = itemView.findViewById(R.id.duracionTextView);
-            parkingTextView = itemView.findViewById(R.id.parkingTextView);
+            nombreTextView = itemView.findViewById(R.id.nombreParkingBono);
         }
 
         public void bind(Bono bono) {
-            matriculaTextView.setText(bono.getMatricula());
-            duracionTextView.setText(String.valueOf(bono.getDuracion()));
-            parkingTextView.setText(bono.getParking());
+            nombreTextView.setText(bono.getParking());
+
         }
     }
 }

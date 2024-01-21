@@ -7,12 +7,20 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.proyectoiot.R;
+import com.example.proyectoiot.model.Bono;
+import com.example.proyectoiot.model.BonoCompradosAdapter;
+import com.example.proyectoiot.model.BonoParkingAdapter;
+import com.example.proyectoiot.model.Parking;
+import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 
 import java.text.SimpleDateFormat;
@@ -22,16 +30,32 @@ public class MisBonosFragment extends Fragment {
 
     private RecyclerView recyclerView;
     // Add other UI elements as needed
+    private BonoCompradosAdapter adapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_misbonos, container, false);
+        // Configura la referencia a la colección de Firestore
+        FirebaseFirestore firestore = FirebaseFirestore.getInstance();
+        CollectionReference collection = firestore.collection("Reservas"); // Reemplaza con el nombre de tu colección
 
-        // Initialize UI elements
+        // Use the same query condition as in cambiarfecha method
+        Query query = collection.whereEqualTo("idUsuario", FirebaseAuth.getInstance().getCurrentUser().getUid())
+                .orderBy("fecha");
+
+        // Configura las opciones para el adaptador
+        FirestoreRecyclerOptions<Bono> options = new FirestoreRecyclerOptions.Builder<Bono>()
+                .setQuery(query, Bono.class)
+                .build();
+
+        // Crea el adaptador con las opciones
+        adapter = new BonoCompradosAdapter(options);
+
+        // Configura el RecyclerView
         recyclerView = root.findViewById(R.id.recyclerView2);
-        // Initialize other UI elements
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerView.setAdapter(adapter);
 
-        // Set up RecyclerView adapter and layout manager if needed
 
         // Set up click listeners for buttons
         TextView fechalimite = root.findViewById(R.id.TextoFechaLimite);
@@ -92,4 +116,16 @@ public class MisBonosFragment extends Fragment {
         long millisPorDia = 24L * 60L * 60L * 1000L;
         return dias * millisPorDia;
     }
+    @Override
+    public void onStart() {
+        super.onStart();
+        adapter.startListening();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        adapter.stopListening();
+    }
+
 }
