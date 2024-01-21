@@ -80,6 +80,7 @@
         android:width="135dp"
         android:height="135dp"
         android:background="@drawable/boton_redondeado_333333"
+        android:onClick="acercaDebuttonme"
         android:text="Acerca de"
         android:textColor="@color/white"
         android:textSize="20sp"
