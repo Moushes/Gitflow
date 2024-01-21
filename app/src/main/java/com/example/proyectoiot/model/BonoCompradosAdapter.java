@@ -11,6 +11,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.proyectoiot.R;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class BonoCompradosAdapter extends FirestoreRecyclerAdapter<Bono, BonoCompradosAdapter.BonoViewHolder> {
 
@@ -36,11 +43,11 @@ public class BonoCompradosAdapter extends FirestoreRecyclerAdapter<Bono, BonoCom
         public BonoViewHolder(@NonNull View itemView) {
             super(itemView);
             nombreTextView = itemView.findViewById(R.id.nombreParkingBono);
+
         }
 
         public void bind(Bono bono) {
             nombreTextView.setText(bono.getParking());
-
         }
     }
 }
