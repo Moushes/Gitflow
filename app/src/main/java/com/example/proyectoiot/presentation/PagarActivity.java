@@ -9,6 +9,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.proyectoiot.R;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -19,6 +21,7 @@ import com.example.comun.Mqtt;
 import com.example.proyectoiot.model.Bono;
 import com.example.proyectoiot.model.Parking;
 import com.example.proyectoiot.model.ParkingAdapter;
+import com.example.proyectoiot.ui.notifications.NotificationsFragment;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
@@ -76,11 +79,13 @@ public class PagarActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 mqtt.publicar("privada", "1");
-                Log.d("Reserva", idUsuario);
-                Log.d("Reserva", matricula);
                 Bono bono = new Bono(matricula, 30,"Cala" );
                 bono.agregarReserva(idUsuario);
+                // Cerrar la actividad actual (o fragmento si estás dentro de una actividad con varios fragmentos)
+                finish();
 
+                // Mostrar un Toast indicando que la reserva ha sido realizada correctamente
+                Toast.makeText(PagarActivity.this, "Reserva realizada para la matrícula " + matricula, Toast.LENGTH_SHORT).show();
             }
         });
 
