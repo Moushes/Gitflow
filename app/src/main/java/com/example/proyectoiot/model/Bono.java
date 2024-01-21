@@ -29,6 +29,9 @@ public class Bono {
         this.duracion = duracion;
         this.parking = parking;
     }
+    public Bono(){
+
+    }
 
     // Métodos getters y setters (puedes generarlos automáticamente en tu IDE)
     public String getMatricula() {
