@@ -67,6 +67,7 @@ Si tienes alguna pregunta, comentario o sugerencia, no dudes en ponerte en conta
 ¡Bienvenido a AutoNest, donde estacionar se convierte en una experiencia más inteligente y conveniente!"
                 android:textAlignment="textStart"
                 android:textColor="#FFFFFF" />
+
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

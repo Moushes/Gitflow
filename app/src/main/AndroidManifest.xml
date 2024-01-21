@@ -52,7 +52,9 @@
             android:theme="@style/Theme.ProyectoIoT.NoActionBar"
             android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".presentation.BuscarParkingActivity"></activity>
+        <activity android:name=".presentation.BuscarParkingActivity"
+            android:theme="@style/Theme.ProyectoIoT.NoActionBar"
+            ></activity>
 
 
         <activity
@@ -69,9 +71,12 @@
 
         <activity
             android:name=".presentation.ElegirParkingActivity"
-            android:theme="@style/Theme.AppCompat.Light.Dialog"/>
+            android:theme="@style/Theme.AppCompat.Light.Dialog"
+            />
 
-        <activity android:name=".presentation.AcercaDeActivity" />
+        <activity android:name=".presentation.AcercaDeActivity"
+            android:theme="@style/Theme.ProyectoIoT.NoActionBar"
+        />
 
 
 
