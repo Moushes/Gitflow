@@ -4,12 +4,39 @@
     android:layout_height="match_parent"
     android:background="@color/verdeAutoNest">
 
+    <View
+        android:id="@+id/view8"
+        android:layout_width="match_parent"
+        android:layout_height="61dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="@color/grey"
+        android:backgroundTint="#333333" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="50dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="-5dp"
+        android:layout_marginTop="85dp"
+        android:layout_marginEnd="-1dp"
         android:layout_marginBottom="60dp"
         android:padding="8dp" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="151dp"
+        android:layout_height="35dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="17dp"
+        android:text="Buscar Parking"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
 
 </RelativeLayout>

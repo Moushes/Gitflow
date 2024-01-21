@@ -14,8 +14,10 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.proyectoiot.R;
 import com.example.proyectoiot.databinding.FragmentHomeBinding;
+import com.example.proyectoiot.presentation.AcercaDeActivity;
 import com.example.proyectoiot.presentation.BuscarParkingActivity;
 import com.example.proyectoiot.presentation.FaqActivity;
+import com.example.proyectoiot.presentation.HistorialActivity;
 import com.example.proyectoiot.presentation.MainActivity;
 import com.example.proyectoiot.ui.home.HomeViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -44,6 +46,8 @@ public class HomeFragment extends Fragment {
         //FloatingActionButton fabNotification = root.findViewById(R.id.fab_notification);
         Button faqbuttonme = root.findViewById(R.id.boton_faq);
         Button buscarParking=root.findViewById(R.id.boton_Buscar_Parking);
+        Button acercaDebuttonme = root.findViewById(R.id.boton_AcercaDe);
+        Button historialbuttonme = root.findViewById(R.id.boton_Historial);
 
         // Agregar un OnClickListener al botón flotante
         //fabNotification.setOnClickListener(new View.OnClickListener() {
@@ -61,6 +65,24 @@ public class HomeFragment extends Fragment {
 
             }
         });
+        acercaDebuttonme.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(requireContext(), AcercaDeActivity.class);
+                view.getContext().startActivity(intent);
+
+            }
+        });
+
+        historialbuttonme.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(requireContext(), HistorialActivity.class);
+                view.getContext().startActivity(intent);
+
+            }
+        });
+
         buscarParking.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

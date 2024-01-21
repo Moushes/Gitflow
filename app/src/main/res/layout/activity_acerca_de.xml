@@ -6,15 +6,40 @@
     android:layout_height="match_parent"
     android:background="#01DD93">
 
-    <ScrollView
+    <View
+        android:id="@+id/view9"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="-3dp"
+        android:background="@color/grey"
+        android:backgroundTint="#333333" />
+
+    <TextView
+        android:id="@+id/textView27"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginEnd="3dp"
+        android:text="Acerca De"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="613dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="88dp"
         android:layout_marginEnd="30dp"
         android:layout_marginBottom="30dp"
         android:background="@drawable/fondo_redondeado_blanco"
@@ -23,7 +48,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/texto_acerca_de"
@@ -67,6 +92,7 @@ Si tienes alguna pregunta, comentario o sugerencia, no dudes en ponerte en conta
 ¡Bienvenido a AutoNest, donde estacionar se convierte en una experiencia más inteligente y conveniente!"
                 android:textAlignment="textStart"
                 android:textColor="#FFFFFF" />
+
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

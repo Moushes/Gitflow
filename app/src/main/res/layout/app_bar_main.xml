@@ -15,8 +15,9 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@color/verdeAutoNest"
-            app:popupTheme="@style/Theme.ProyectoIoT.PopupOverlay" />
+            android:background="@color/grey"
+            app:popupTheme="@style/Theme.ProyectoIoT.PopupOverlay"
+            app:titleTextColor="#FFFFFF" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
