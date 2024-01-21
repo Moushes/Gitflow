@@ -35,6 +35,7 @@ public class MisBonosFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_misbonos, container, false);
+
         // Configura la referencia a la colección de Firestore
         FirebaseFirestore firestore = FirebaseFirestore.getInstance();
         CollectionReference collection = firestore.collection("Reservas"); // Reemplaza con el nombre de tu colección
@@ -56,12 +57,25 @@ public class MisBonosFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(adapter);
 
-
         // Set up click listeners for buttons
         TextView fechalimite = root.findViewById(R.id.TextoFechaLimite);
         cambiarfecha(fechalimite);
+
+        // Establece el listener en el adaptador
+        adapter.setOnItemClickListener(new BonoCompradosAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(Bono bono) {
+                // Maneja el clic en el elemento del RecyclerView aquí
+                // Puedes abrir una nueva actividad o realizar cualquier acción que desees
+                // Puedes acceder a los detalles del bono utilizando el objeto "bono"
+                TextView fechalimite = getView().findViewById(R.id.TextoFechaLimite);
+                fechalimite.setText("Cambio");
+            }
+        });
+
         return root;
     }
+
     public void cambiarfecha(TextView fechalimite) {
         FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
         fechalimite.setText("Ha ocurrido un error detectando al usuario");
@@ -126,6 +140,16 @@ public class MisBonosFragment extends Fragment {
     public void onStop() {
         super.onStop();
         adapter.stopListening();
+    }
+
+
+    public void onItemClick(Bono bono) {
+        // Maneja el clic en el elemento del RecyclerView aquí
+        // Puedes abrir una nueva actividad o realizar cualquier acción que desees
+        // Puedes acceder a los detalles del bono utilizando el objeto "bono"
+
+        // Actualiza el TextView con el nuevo texto "Cambio"
+
     }
 
 }

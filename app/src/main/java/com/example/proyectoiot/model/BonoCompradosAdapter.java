@@ -44,10 +44,32 @@ public class BonoCompradosAdapter extends FirestoreRecyclerAdapter<Bono, BonoCom
             super(itemView);
             nombreTextView = itemView.findViewById(R.id.nombreParkingBono);
 
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (listener != null) {
+                        int position = getAdapterPosition();
+                        if (position != RecyclerView.NO_POSITION) {
+                            listener.onItemClick(getItem(position));
+                        }
+                    }
+                }
+            });
         }
 
         public void bind(Bono bono) {
             nombreTextView.setText(bono.getParking());
         }
+    }
+
+    public interface OnItemClickListener {
+        void onItemClick(Bono bono);
+    }
+
+    private OnItemClickListener listener;
+
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        this.listener = listener;
     }
 }
