@@ -28,25 +28,12 @@
         android:layout_above="@+id/BotonAnual"
         android:layout_alignStart="@+id/botonSemanal"
         android:layout_alignEnd="@+id/botonSemanal"
+        android:layout_centerHorizontal="true"
         android:layout_marginStart="1dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginBottom="-8dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="-7dp"
         android:background="@drawable/banner_1_any"
         tools:srcCompat="@tools:sample/avatars" />
-
-    <Button
-        android:id="@+id/botonSemanal"
-        android:layout_width="275dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="65dp"
-        android:layout_marginEnd="71dp"
-        android:layout_marginBottom="64dp"
-        android:background="#333333"
-        android:text="Comprar"
-        android:textColor="#FFFFFF" />
 
     <Button
         android:id="@+id/BotonAnual"
@@ -58,7 +45,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginStart="65dp"
         android:layout_marginEnd="71dp"
-        android:layout_marginBottom="150dp"
+        android:layout_marginBottom="147dp"
         android:background="#333333"
         android:text="Comprar"
         android:textColor="#FFFFFF" />
@@ -70,10 +57,39 @@
         android:layout_above="@+id/botonSemanal"
         android:layout_alignStart="@+id/botonSemanal"
         android:layout_alignEnd="@+id/botonSemanal"
+        android:layout_centerHorizontal="true"
         android:layout_marginStart="1dp"
         android:layout_marginEnd="1dp"
         android:layout_marginBottom="-8dp"
         android:background="@drawable/banner_1_semana"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <Button
+        android:id="@+id/botonSemanal"
+        android:layout_width="275dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="65dp"
+        android:layout_marginEnd="71dp"
+        android:layout_marginBottom="90dp"
+        android:background="#333333"
+        android:text="Comprar"
+        android:textColor="#FFFFFF" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="wrap_content"
+        android:layout_height="120dp"
+        android:layout_above="@+id/botonMensual"
+        android:layout_alignStart="@+id/botonSemanal"
+        android:layout_alignEnd="@+id/botonSemanal"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginBottom="-8dp"
+        android:background="@drawable/banner_1_mes"
         tools:srcCompat="@tools:sample/avatars" />
 
     <Button
@@ -84,24 +100,11 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="64dp"
-        android:layout_marginEnd="68dp"
-        android:layout_marginBottom="161dp"
+        android:layout_marginStart="65dp"
+        android:layout_marginEnd="67dp"
+        android:layout_marginBottom="154dp"
         android:background="#333333"
         android:text="Comprar"
         android:textColor="@color/white" />
-
-    <ImageView
-        android:id="@+id/imageView7"
-        android:layout_width="wrap_content"
-        android:layout_height="120dp"
-        android:layout_above="@+id/botonMensual"
-        android:layout_alignStart="@+id/botonSemanal"
-        android:layout_alignEnd="@+id/botonSemanal"
-        android:layout_marginStart="1dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginBottom="-8dp"
-        android:background="@drawable/banner_1_mes"
-        tools:srcCompat="@tools:sample/avatars" />
 
 </RelativeLayout>
