@@ -1,5 +1,7 @@
 package com.example.proyectoiot.ui.misbonos;
 
+import static android.service.autofill.Validators.and;
+
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -59,7 +61,6 @@ public class MisBonosFragment extends Fragment {
 
         // Set up click listeners for buttons
         TextView fechalimite = root.findViewById(R.id.TextoFechaLimite);
-        cambiarfecha(fechalimite);
 
         // Establece el listener en el adaptador
         adapter.setOnItemClickListener(new BonoCompradosAdapter.OnItemClickListener() {
@@ -69,7 +70,34 @@ public class MisBonosFragment extends Fragment {
                 // Puedes abrir una nueva actividad o realizar cualquier acción que desees
                 // Puedes acceder a los detalles del bono utilizando el objeto "bono"
                 TextView fechalimite = getView().findViewById(R.id.TextoFechaLimite);
-                fechalimite.setText("Cambio");
+                FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+                if (currentUser != null) {
+                    // Acceder a la colección "reservas" en Firestore y buscar la reserva con el ID del usuario
+                    String uid = currentUser.getUid();
+                    FirebaseFirestore db = FirebaseFirestore.getInstance();
+                    db.collection("Reservas")
+                            .whereEqualTo("idUsuario", uid)
+                            .get()
+                            .addOnCompleteListener(task -> {
+                                if (task.isSuccessful()) {
+                                    // Iterar sobre los documentos resultantes (debería haber solo uno, ya que buscamos por ID de usuario)
+                                    for (QueryDocumentSnapshot document : task.getResult()) {
+                                        // Obtener el valor de fechaLimite
+                                        Long fechaLimite = document.getLong("fecha");
+                                        Long dias = document.getLong("duracion");
+                                        Long diasenMillis = convertirDiasAMillis(dias);
+                                        Long duracion = (fechaLimite + diasenMillis);
+                                        // Convertir la fechaLimite al formato deseado
+                                        String fechaLimiteFormateada = convertirFecha(duracion.toString());
+
+                                        // Actualizar el TextView con la fechaLimite formateada
+                                        fechalimite.setText(fechaLimiteFormateada);
+                                        break;
+                                    }
+
+                                }
+                            });
+                }
             }
         });
 
@@ -78,7 +106,6 @@ public class MisBonosFragment extends Fragment {
 
     public void cambiarfecha(TextView fechalimite) {
         FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
-        fechalimite.setText("Ha ocurrido un error detectando al usuario");
         if (currentUser != null) {
             // Acceder a la colección "reservas" en Firestore y buscar la reserva con el ID del usuario
             String uid = currentUser.getUid();
